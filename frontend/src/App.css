@@ -5,38 +5,155 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.main-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative; /* Ensure context for fixed navbar */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar {
+  position: fixed; /* Changed to fixed to prevent scrolling */
+  top: 0;
+  width: 100%;
+  background-color: #f0f0f0;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Add padding to content to avoid overlap with fixed navbar */
+.hero-section,
+.releases-section,
+.meet-the-crew-section {
+  margin-top: 80px; /* Adjust based on navbar height */
+}
+
+.hero-section {
+  margin-bottom: 2rem;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+}
+
+.releases-section {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.releases-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.featured-album {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.album-banner img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.platform-links {
+  margin-top: 1rem;
+}
+
+.platform-link {
+  display: block;
+  margin: 0.5rem 0;
+  color: #646cff;
+  text-decoration: none;
+}
+
+.platform-link:hover {
+  text-decoration: underline;
+}
+
+.what-weve-been-up-to {
+  background-color: #e8f5e8;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.album-release,
+.blog-post {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 4px;
+  border-left: 4px solid #4caf50;
+}
+
+.album-release img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.blog-post a {
+  color: #646cff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.blog-post a:hover {
+  text-decoration: underline;
+}
+
+.meet-the-crew-section {
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 2rem;
+}
+
+.crew-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.crew-list li {
+  margin: 0.5rem 0;
 }
 
 .card {
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #888;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .releases-grid {
+    grid-template-columns: 1fr;
+  }
+  .navbar-links {
+    flex-direction: column;
+    text-align: center;
+  }
 }
