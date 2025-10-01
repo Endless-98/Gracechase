@@ -20,7 +20,7 @@ function App() {
 
       {/* Logo and Band Hero Shot */}
       <header className="hero-section">
-        <img src="https://via.placeholder.com/1200x400/cccccc/000000?text=Logo+and+Band+Hero+Shot" alt="Logo and Band Hero Shot" className="hero-image" />
+        <img src="src/assets/site-banners/YMBG.jpg" alt="Logo and Band Hero Shot" className="hero-image" />
       </header>
 
       {/* Releases Section */}
@@ -31,7 +31,7 @@ function App() {
           <div className="featured-album">
             <h3>Featured Album</h3>
             <div className="album-banner">
-              <img src="https://via.placeholder.com/600x300/ff69b4/ffffff?text=Album+Banner" alt="Album Banner" />
+              <img src="src/assets/album-covers/YourMajesty_AlbumCover.png" alt="Album Banner" />
               <p>Link sharing the latest single/maybe you used</p>
             </div>
             <div className="platform-links">
@@ -48,7 +48,7 @@ function App() {
             <div className="album-release">
               <h4>Album Release</h4>
               <p>New Album announcement</p>
-              <img src="https://via.placeholder.com/300x200/4caf50/ffffff?text=New+Album" alt="New Album" />
+              <img src="src/assets/album-covers/YourMajesty_AlbumCover.png" alt="New Album"/>
             </div>
             <div className="blog-post">
               <h4>Blog Post</h4>

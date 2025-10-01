@@ -1,19 +1,18 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0;
+  padding: 0;
+  border: 0
   text-align: center;
 }
 
 .main-page {
   display: flex;
   flex-direction: column;
+  width: 100%;
   min-height: 100vh;
-  position: relative; /* Ensure context for fixed navbar */
 }
 
 .navbar {
-  position: fixed; /* Changed to fixed to prevent scrolling */
   top: 0;
   width: 100%;
   background-color: #f0f0f0;
@@ -22,6 +21,7 @@
   z-index: 1000;
   display: flex;
   justify-content: center;
+  position: absolute;
 }
 
 .navbar-links {
@@ -40,19 +40,20 @@
 }
 
 /* Add padding to content to avoid overlap with fixed navbar */
-.hero-section,
+/* .hero-section,
 .releases-section,
 .meet-the-crew-section {
-  margin-top: 80px; /* Adjust based on navbar height */
-}
+  margin-top: 80px; /* Adjust based on navbar height 
+} */
 
 .hero-section {
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
 }
 
 .hero-image {
   width: 100%;
-  height: auto;
+  height: 100vh;
+  object-fit:cover;
 }
 
 .releases-section {
@@ -71,13 +72,16 @@
 .featured-album {
   background-color: #fff;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 5%;
   border: 1px solid #ddd;
+}
+.featured-album img {
+    border-radius: 5%;
 }
 
 .album-banner img {
   width: 100%;
-  border-radius: 4px;
+  border-radius: 5%;
 }
 
 .platform-links {
@@ -113,7 +117,7 @@
 
 .album-release img {
   width: 100%;
-  border-radius: 4px;
+  border-radius: 5%;
 }
 
 .blog-post a {
@@ -145,6 +149,10 @@
 
 .card {
   padding: 2em;
+}
+
+li, p, h1, h2, h3, h4, h5, h6 {
+  color: #333;
 }
 
 /* Responsive adjustments */
