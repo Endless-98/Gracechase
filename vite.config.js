@@ -7,5 +7,5 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
   },
-  base: '/Gracechase.com/',  // Must match your repo name, including the trailing slash
+  base: '/Gracechase/',
 });
