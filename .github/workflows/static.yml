@@ -4,7 +4,7 @@ name: Deploy static content to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["master"]
+    branches: ["master"]  # Updated to use master branch
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -34,21 +34,18 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'  # Use Node.js 20 (adjust if your project requires a different version)
+          node-version: '20'  # Use Node.js 20 (adjust if needed)
           cache: 'npm'
-          cache-dependency-path: frontend/package.json  # Cache based on frontend's package.json
       - name: Install dependencies
-        run: npm ci  # Use npm ci for consistent installs
-        working-directory: ./frontend  # Run in frontend directory
+        run: npm ci  # Install root-level dependencies
       - name: Build
-        run: npm run build  # Builds the Vite project
-        working-directory: ./frontend  # Ensure build happens in frontend
+        run: npm run build  # Build from root
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './frontend/dist'  # Upload the built dist folder
+          path: '.'  # Upload the root folder (build output is now in root)
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
