@@ -6,6 +6,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     emptyOutDir: true,
+    assetsInlineLimit: 0, // Ensure large images aren’t inlined
   },
   base: '/Gracechase/',
 });
