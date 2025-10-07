@@ -18,11 +18,8 @@ function App() {
 
       {/* Logo and Band Hero Shot */}
       <header className="hero-section">
-        <picture>
-          <source srcset="/images/site-banners/YMBG.jpg" type="image/webp" />
-          <source srcset="Gracechase/images/site-banners/YMBG.jpg" type="image/jpeg" />
-          <img src="/images/site-banners/YMBG.jpg" className="hero-image" alt="The Gracechase band in an epic sillouhette with a golden lit background" />
-        </picture>   
+        <img className="hero-image" src="/images/site-banners/YMBG.jpg" 
+     onerror="this.onerror=null; this.src='Gracechase/images/site-banners/YMBG.jpg';" alt="The Gracechase band in an epic sillouhette with a golden lit background" />
       </header>
 
       {/* Releases Section */}
