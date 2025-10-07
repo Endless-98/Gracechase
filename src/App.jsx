@@ -6,15 +6,15 @@ function App() {
   return (
     <div className="main-page">
       {/* Navbar */}
-      <nav className="navbar">
-        <div className="navbar-links">
-          <a href="#" className="nav-link">Home</a>
-          <a href="#" className="nav-link">About</a>
-          <a href="#" className="nav-link">Releases</a>
-          <a href="#" className="nav-link">Blog</a>
-          <a href="#" className="nav-link">Contact</a>
-        </div>
-      </nav>
+      <div className="header">
+        <nav className="navbar">
+          <p><a href="#" className="nav-link">Home</a></p>
+          <p><a href="#" className="nav-link">About</a></p>
+          <p><a href="#" className="nav-link">Releases</a></p>
+          <p><a href="#" className="nav-link">Blog</a></p>
+          <p><a href="#" className="nav-link">Contact</a></p>
+        </nav>
+      </div>
 
       {/* Logo and Band Hero Shot */}
       <header className="hero-section">
