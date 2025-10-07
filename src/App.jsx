@@ -18,8 +18,7 @@ function App() {
 
       {/* Logo and Band Hero Shot */}
       <header className="hero-section">
-        <img className="hero-image" src="/images/site-banners/YMBG.jpg" 
-     onerror="this.onerror=null; this.src='Gracechase/images/site-banners/YMBG.jpg';" alt="The Gracechase band in an epic sillouhette with a golden lit background" />
+        <img className="hero-image" src="images/site-banners/YMBG.jpg" alt="The Gracechase band in an epic sillouhette with a golden lit background" />
       </header>
 
       {/* Releases Section */}
@@ -30,7 +29,7 @@ function App() {
           <div className="featured-album">
             <h3>Featured Album</h3>
             <div className="album-banner">
-              <img src="/images/album-covers/YourMajesty_AlbumCover.png"
+              <img src="images/album-covers/YourMajesty_AlbumCover.png"
                alt="Album Banner" />
               <p>Link that takes you to the album, using the streaming service you selected</p>
             </div>
@@ -48,7 +47,7 @@ function App() {
             <div className="album-release">
               <h4>Album Release</h4>
               <p>New Album announcement</p>
-              <img src="/images/album-covers/YourMajesty_AlbumCover.png" alt="New Album"/>
+              <img src="images/album-covers/YourMajesty_AlbumCover.png" alt="New Album"/>
             </div>
             <div className="blog-post">
               <h4>Blog Post</h4>
