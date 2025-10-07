@@ -2,8 +2,6 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
-  // For demonstration, keeping a simple state if needed; can remove later
-  const [count, setCount] = useState(0);
 
   return (
     <div className="main-page">
@@ -20,7 +18,11 @@ function App() {
 
       {/* Logo and Band Hero Shot */}
       <header className="hero-section">
-        <img src="/images/site-banners/YMBG.jpg" alt="Logo and Band Hero Shot" className="hero-image" />
+        <picture>
+          <source srcset="/images/site-banners/YMBG.jpg" type="image/webp" />
+          <source srcset="Gracechase/images/site-banners/YMBG.jpg" type="image/jpeg" />
+          <img src="/images/site-banners/YMBG.jpg" className="hero-image" alt="The Gracechase band in an epic sillouhette with a golden lit background" />
+        </picture>   
       </header>
 
       {/* Releases Section */}
@@ -31,7 +33,8 @@ function App() {
           <div className="featured-album">
             <h3>Featured Album</h3>
             <div className="album-banner">
-              <img src="/images/album-covers/YourMajesty_AlbumCover.png" alt="Album Banner" />
+              <img src="/images/album-covers/YourMajesty_AlbumCover.png"
+               alt="Album Banner" />
               <p>Link that takes you to the album, using the streaming service you selected</p>
             </div>
             <div className="platform-links">
