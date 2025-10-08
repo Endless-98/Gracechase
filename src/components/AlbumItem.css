@@ -9,13 +9,13 @@
 }
 
 
-.album-item {
+.album-and-songs-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 8px; /* Reduced from 16px to minimize overflow */
+  padding: 16px; /* Increased for more breathing space */
   border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  border-radius: 12px;
   width: 100%; /* Fill parent container */
   box-sizing: border-box; /* Include padding/border in width */
   /* transition: transform 0.2s; */
@@ -31,33 +31,30 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  max-width: 375px; /* Limit max width to prevent excessive stretching */
 }
 
 .album-cover {
-  width: 100%; /* Scale with parent */
-  max-width: 150px; /* Cap image size */
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
   margin-bottom: 12px;
 }
 
+
 h3 {
   font-size: 1.2rem;
-  margin: 8px 0;
+  margin: 12px 0;
   color: #121212;
 }
 
 p {
   font-size: 1rem;
   color: #666;
-  margin: 4px 0;
+  margin: 8px 0;
 }
 
 .streaming-links {
   display: flex;
   gap: 12px;
-  margin-top: 8px;
+  margin-top: 12px;
 }
 
 .streaming-links svg {

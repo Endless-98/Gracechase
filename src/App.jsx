@@ -7,14 +7,18 @@ function App() {
   const albums = [
     {
       id: 1,
-      coverImage: 'images/album-covers/YourMajesty_AlbumCover.png',
-      title: 'Your Majesty',
-      artist: 'Gracechase',
+      spotifyEmbedIframe: '<iframe data-testid="embed-iframe" className="spotify-embed" style={{borderRadius: "12px"}} src={`https://open.spotify.com/embed/album/${albumId}?utm_source=generator`} width="100%" height="352" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
       spotifyLink: 'https://open.spotify.com/album/0eRcQ32hkwgvSvfPPPOOhu?si=3fLeoWN0TFWaIPjgsn0PKg',
       appleMusicLink: 'https://music.apple.com/us/album/your-majesty/1841459632',
-      youtubeMusicLink: 'https://music.youtube.com/channel/UCgMwhiHU4F08PfEbqK-h6gQ?si=4ArUdOi6RtFRg8d2',
+      youtubeMusicLink: 'https://music.youtube.com/playlist?list=OLAK5uy_kVbhrim-szUB-OAs0nCayOWOijpXukKCA&si=WFnipm4d5J3fED_X',
     },
-    // Add more albums as needed
+    {
+      id: 2,
+      spotifyEmbedIframe: '<iframe data-testid="embed-iframe" className="spotify-embed" style={{borderRadius: "12px"}} src={`https://open.spotify.com/embed/album/5Tt1sGIoAnpzRHY3abDqz4?utm_source=generator`} width="100%" height="352" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
+      spotifyLink: 'https://open.spotify.com/album/5Tt1sGIoAnpzRHY3abDqz4?si=3fLeoWN0TFWaIPjgsn0PKg',
+      appleMusicLink: 'https://music.apple.com/us/album/im-still-your-love-single/1835662171',
+      youtubeMusicLink: 'https://music.youtube.com/watch?v=QoaeKUHDJM8&si=IEWUMM8N6seCrzPe',
+    },
   ];
 
   return (
@@ -45,22 +49,19 @@ function App() {
         <div className="releases-grid">
           {/* Featured Album using AlbumItem */}
           <div className="featured-album">
-            <h3>Featured Album</h3>
-            {albums[0] && (
+            {albums.map((album) => (
               <AlbumItem
-                key={albums[0].id}
-                coverImage={albums[0].coverImage}
-                title={albums[0].title}
-                artist={albums[0].artist}
-                spotifyLink={albums[0].spotifyLink}
-                appleMusicLink={albums[0].appleMusicLink}
-                youtubeMusicLink={albums[0].youtubeMusicLink}
+                key={album.id}
+                spotifyLink={album.spotifyLink}
+                youtubeMusicLink={album.youtubeMusicLink}
+                appleMusicLink={album.appleMusicLink}
               />
-            )}
+            ))}
           </div>
-
+        </div>
+        </section>
           {/* What We've Been Up To */}
-          <div className="what-weve-been-up-to">
+          {/*<div className="what-weve-been-up-to">
             <h3>What we've been up to</h3>
             <div className="album-release">
               <h4>Album Release</h4>
@@ -75,7 +76,9 @@ function App() {
                   appleMusicLink={albums[0].appleMusicLink}
                   youtubeMusicLink={albums[0].youtubeMusicLink}
                 />
-              )}
+                
+             
+
             </div>
             <div className="blog-post">
               <h4>Blog Post</h4>
@@ -83,10 +86,10 @@ function App() {
               <a href="#">Read More</a>
             </div>
           </div>
-        </div>
-      </section>
+ )} */}
 
       {/* Meet the Crew Section */}
+      {/*      
       <section className="meet-the-crew-section">
         <h2>Meet the Crew</h2>
         <p>Some kind of explanation that they are AI characters</p>
@@ -99,6 +102,13 @@ function App() {
           </ul>
         </div>
       </section>
+    </div>
+    */}
+    <section className='footer'>
+      <div className='footer-content'>
+        <p>&copy; 2025 Gracechase. All rights reserved.</p>
+      </div>
+    </section>
     </div>
   );
 }
