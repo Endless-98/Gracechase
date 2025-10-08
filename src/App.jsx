@@ -54,10 +54,9 @@ function App() {
                 artist={albums[0].artist}
                 spotifyLink={albums[0].spotifyLink}
                 appleMusicLink={albums[0].appleMusicLink}
-                bandcampLink={albums[0].bandcampLink} // Added for Bandcamp
+                youtubeMusicLink={albums[0].youtubeMusicLink}
               />
             )}
-            <p>Link that takes you to the album, using the streaming service you selected</p>
           </div>
 
           {/* What We've Been Up To */}
@@ -74,7 +73,7 @@ function App() {
                   artist={albums[0].artist}
                   spotifyLink={albums[0].spotifyLink}
                   appleMusicLink={albums[0].appleMusicLink}
-                  bandcampLink={albums[0].bandcampLink}
+                  youtubeMusicLink={albums[0].youtubeMusicLink}
                 />
               )}
             </div>

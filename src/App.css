@@ -4,6 +4,13 @@ Pale yellow: #fdf0cd
 Off-white yellow: #fff7e2
 */
 
+*
+ {
+  margin: 0;
+  padding: 0;
+  border: 0;
+ }
+
 #root {
   margin: 0;
   padding: 0;
