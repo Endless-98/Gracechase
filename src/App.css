@@ -1,3 +1,9 @@
+/* 
+Color Palette
+Pale yellow: #fdf0cd
+Off-white yellow: #fff7e2
+*/
+
 #root {
   margin: 0;
   padding: 0;
@@ -15,7 +21,7 @@
   top: 0;
   width: 100%;
   position: absolute;
-  background-color: #f0f0f0;
+  background-color: #fff7e2;
   display: grid;
   align-items: center;
   align-content: center;
@@ -76,16 +82,8 @@
 .featured-album {
   background-color: #fff;
   padding: 1rem;
-  border-radius: 5%;
+  border-radius: 8px;
   border: 1px solid #ddd;
-}
-.featured-album img {
-    border-radius: 5%;
-}
-
-.album-banner img {
-  width: 100%;
-  border-radius: 5%;
 }
 
 .platform-links {

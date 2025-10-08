@@ -1,7 +1,21 @@
 import { useState } from 'react';
+import AlbumItem from './components/AlbumItem.jsx';
 import './App.css';
 
 function App() {
+  // Sample album data (replace with API data in a real MERN app)
+  const albums = [
+    {
+      id: 1,
+      coverImage: 'images/album-covers/YourMajesty_AlbumCover.png',
+      title: 'Your Majesty',
+      artist: 'Gracechase',
+      spotifyLink: 'https://open.spotify.com/album/0eRcQ32hkwgvSvfPPPOOhu?si=3fLeoWN0TFWaIPjgsn0PKg',
+      appleMusicLink: 'https://music.apple.com/us/album/your-majesty/1841459632',
+      youtubeMusicLink: 'https://music.youtube.com/channel/UCgMwhiHU4F08PfEbqK-h6gQ?si=4ArUdOi6RtFRg8d2',
+    },
+    // Add more albums as needed
+  ];
 
   return (
     <div className="main-page">
@@ -18,27 +32,32 @@ function App() {
 
       {/* Logo and Band Hero Shot */}
       <header className="hero-section">
-        <img className="hero-image" src="images/site-banners/YMBG.jpg" alt="The Gracechase band in an epic sillouhette with a golden lit background" />
+        <img
+          className="hero-image"
+          src="images/site-banners/YMBG.jpg"
+          alt="The Gracechase band in an epic silhouette with a golden lit background"
+        />
       </header>
 
       {/* Releases Section */}
       <section className="releases-section">
         <h2>Releases</h2>
         <div className="releases-grid">
-          {/* Featured Album with Album Banner and Platform Links */}
+          {/* Featured Album using AlbumItem */}
           <div className="featured-album">
             <h3>Featured Album</h3>
-            <div className="album-banner">
-              <img src="images/album-covers/YourMajesty_AlbumCover.png"
-               alt="Album Banner" />
-              <p>Link that takes you to the album, using the streaming service you selected</p>
-            </div>
-            <div className="platform-links">
-              <h4>Platform Links</h4>
-              <a href="#" className="platform-link">Spotify</a>
-              <a href="#" className="platform-link">Apple Music</a>
-              <a href="#" className="platform-link">Bandcamp</a>
-            </div>
+            {albums[0] && (
+              <AlbumItem
+                key={albums[0].id}
+                coverImage={albums[0].coverImage}
+                title={albums[0].title}
+                artist={albums[0].artist}
+                spotifyLink={albums[0].spotifyLink}
+                appleMusicLink={albums[0].appleMusicLink}
+                bandcampLink={albums[0].bandcampLink} // Added for Bandcamp
+              />
+            )}
+            <p>Link that takes you to the album, using the streaming service you selected</p>
           </div>
 
           {/* What We've Been Up To */}
@@ -47,7 +66,17 @@ function App() {
             <div className="album-release">
               <h4>Album Release</h4>
               <p>New Album announcement</p>
-              <img src="images/album-covers/YourMajesty_AlbumCover.png" alt="New Album"/>
+              {albums[0] && (
+                <AlbumItem
+                  key={albums[0].id + '-release'} // Unique key for same album
+                  coverImage={albums[0].coverImage}
+                  title={albums[0].title}
+                  artist={albums[0].artist}
+                  spotifyLink={albums[0].spotifyLink}
+                  appleMusicLink={albums[0].appleMusicLink}
+                  bandcampLink={albums[0].bandcampLink}
+                />
+              )}
             </div>
             <div className="blog-post">
               <h4>Blog Post</h4>
@@ -71,7 +100,6 @@ function App() {
           </ul>
         </div>
       </section>
-
     </div>
   );
 }
