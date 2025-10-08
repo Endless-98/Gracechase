@@ -8,7 +8,6 @@
   box-sizing: border-box;
 }
 
-
 .album-and-songs-container {
   display: flex;
   flex-direction: column;
@@ -21,23 +20,9 @@
   /* transition: transform 0.2s; */
 }
 
-/* .album-item:hover {
-  transform: scale(1.02);
-} */
-
-.album-container {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 375px; /* Limit max width to prevent excessive stretching */
-}
-
 .album-cover {
   margin-bottom: 12px;
 }
-
 
 h3 {
   font-size: 1.2rem;
@@ -63,4 +48,18 @@ p {
 
 .streaming-links svg:hover {
   opacity: 0.8;
+}
+
+/* Additional styles */
+.album-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 375px; /* Limit max width to prevent excessive stretching */
+}
+
+.spotify-embed {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
