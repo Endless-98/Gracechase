@@ -8,6 +8,7 @@ Off-white yellow: #fff7e2
   margin: 0;
   padding: 0;
   border: 0;
+  width: 100%;
 }
 
 .main-page {
@@ -61,9 +62,14 @@ Off-white yellow: #fff7e2
 }
 
 .hero-image {
+  /* Height should not exceed 100vh, but width should fill parent */
+
   width: 100%;
-  max-height: 100vh;
-  object-fit:cover;
+  height: 100vh;
+  max-height: 100%;
+  object-fit: cover;
+  
+
 }
 
 .releases-section {
