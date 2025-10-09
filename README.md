@@ -1,5 +1,6 @@
 # Gracechase.com
 
+https://endless-98.github.io/Gracechase/
 A clean, modern website for the artist Gracechase, built with React. Showcases music albums and blog posts with a golden theme.
 
 ![Gracechase Hero](public/images/site-banners/YMBG.jpg)
