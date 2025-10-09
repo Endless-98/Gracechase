@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import AlbumItem from './components/AlbumItem.jsx';
+import Blog from './components/Blog.jsx';
 import './App.css';
 
 function App() {
@@ -22,94 +24,71 @@ function App() {
   ];
 
   return (
-    <div className="main-page">
-      {/* Navbar */}
-      <div className="header">
-        <nav className="navbar">
-          <p><a href="#" className="nav-link">Home</a></p>
-          <p><a href="#" className="nav-link">About</a></p>
-          <p><a href="#" className="nav-link">Releases</a></p>
-          <p><a href="#" className="nav-link">Blog</a></p>
-          <p><a href="#" className="nav-link">Contact</a></p>
-        </nav>
-      </div>
-
-      {/* Logo and Band Hero Shot */}
-      <header className="hero-section">
-        <img
-          className="hero-image"
-          src="images/site-banners/YMBG.jpg"
-          alt="The Gracechase band in an epic silhouette with a golden lit background"
-        />
-      </header>
-
-      {/* Releases Section */}
-      <section className="releases-section">
-        <h2>Releases</h2>
-        <div className="releases-grid">
-          {/* Featured Album using AlbumItem */}
-          <div className="featured-album">
-            {albums.map((album) => (
-              <AlbumItem
-                key={album.id}
-                spotifyLink={album.spotifyLink}
-                youtubeMusicLink={album.youtubeMusicLink}
-                appleMusicLink={album.appleMusicLink}
-              />
-            ))}
+    <Routes>
+      <Route path="/" element={
+        <div className="main-page">
+          {/* Navbar */}
+          <div className="header">
+            <nav className="navbar">
+              <p><Link to="/#" className="nav-link">Home</Link></p>
+              <p><Link to="/about" className="nav-link">About</Link></p>
+              <p><Link to="/releases" className="nav-link">Releases</Link></p>
+              <p><Link to="/blog" className="nav-link">Blog</Link></p>
+              <p><Link to="/contact" className="nav-link">Contact</Link></p>
+            </nav>
           </div>
-        </div>
-        </section>
-          {/* What We've Been Up To */}
-          {/*<div className="what-weve-been-up-to">
-            <h3>What we've been up to</h3>
-            <div className="album-release">
-              <h4>Album Release</h4>
-              <p>New Album announcement</p>
-              {albums[0] && (
-                <AlbumItem
-                  key={albums[0].id + '-release'} // Unique key for same album
-                  coverImage={albums[0].coverImage}
-                  title={albums[0].title}
-                  artist={albums[0].artist}
-                  spotifyLink={albums[0].spotifyLink}
-                  appleMusicLink={albums[0].appleMusicLink}
-                  youtubeMusicLink={albums[0].youtubeMusicLink}
-                />
-                
-             
 
-            </div>
-            <div className="blog-post">
-              <h4>Blog Post</h4>
-              <p>Blog Posts</p>
-              <a href="#">Read More</a>
-            </div>
-          </div>
- )} */}
+          {/* Logo and Band Hero Shot */}
+          <header className="hero-section">
+            <img
+              className="hero-image"
+              src="images/site-banners/YMBG.jpg"
+              alt="The Gracechase band in an epic silhouette with a golden lit background"
+            />
+          </header>
 
-      {/* Meet the Crew Section */}
-      {/*      
-      <section className="meet-the-crew-section">
-        <h2>Meet the Crew</h2>
-        <p>Some kind of explanation that they are AI characters</p>
-        <div className="crew-list">
-          <h4>List the cast of characters</h4>
-          <ul>
-            <li>Character 1: Description</li>
-            <li>Character 2: Description</li>
-            <li>Character 3: Description</li>
-          </ul>
+          {/* Releases Section */}
+          <section className="releases-section">
+            <h2>Releases</h2>
+            <div className="releases-grid">
+              {/* Featured Album using AlbumItem */}
+              <div className="featured-album">
+                {albums.map((album) => (
+                  <AlbumItem
+                    key={album.id}
+                    spotifyLink={album.spotifyLink}
+                    youtubeMusicLink={album.youtubeMusicLink}
+                    appleMusicLink={album.appleMusicLink}
+                  />
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Meet the Crew Section */}
+          {/*      
+          <section className="meet-the-crew-section">
+            <h2>Meet the Crew</h2>
+            <p>Some kind of explanation that they are AI characters</p>
+            <div className="crew-list">
+              <h4>List the cast of characters</h4>
+              <ul>
+                <li>Character 1: Description</li>
+                <li>Character 2: Description</li>
+                <li>Character 3: Description</li>
+              </ul>
+            </div>
+          </section>
+          */}
+          <section className='footer'>
+            <div className='footer-content'>
+              <p>&copy; 2025 Gracechase. All rights reserved.</p>
+            </div>
+          </section>
         </div>
-      </section>
-    </div>
-    */}
-    <section className='footer'>
-      <div className='footer-content'>
-        <p>&copy; 2025 Gracechase. All rights reserved.</p>
-      </div>
-    </section>
-    </div>
+      } />
+      <Route path="/blog" element={<Blog />} />
+    </Routes>
   );
 }
 
