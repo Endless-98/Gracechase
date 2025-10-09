@@ -97,7 +97,7 @@ function App() {
                 </p>
               </div>
               <div className="about-subsection">
-                <h3>Meet the Crew</h3>
+                {/* <h3>Meet the Crew</h3>
                 <p>Gracechase is brought to life by a team of AI "characters" and human collaborators:</p>
                 <ul>
                   <li><strong>Grace:</strong> The lead AI composer, inspired by classical elegance.</li>
@@ -105,7 +105,7 @@ function App() {
                   <li><strong>Harmony:</strong> The human arranger, adding emotional depth.</li>
                   <li><strong>Echo:</strong> The sound designer, crafting immersive audio experiences.</li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           </section>
 
