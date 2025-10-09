@@ -1,20 +1,10 @@
-import { useState, useEffect } from 'react';
-import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import AlbumItem from './components/AlbumItem.jsx';
 import Blog from './components/Blog.jsx';
 import './App.css';
 
 function App() {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const search = window.location.search;
-    if (search.startsWith('?/')) {
-      const path = search.slice(2); // remove ?/
-      navigate(path);
-    }
-  }, [navigate]);
-
   // Sample album data (replace with API data in a real MERN app)
   const albums = [
     {

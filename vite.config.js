@@ -8,5 +8,5 @@ export default defineConfig({
     emptyOutDir: true,
     assetsInlineLimit: 0, // Ensure large images aren’t inlined
   },
-  base: process.env.NODE_ENV === 'production' ? '/Gracechase/' : '/',
+  base: '/Gracechase/',
 });
