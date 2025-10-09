@@ -96,8 +96,8 @@ function App() {
                   We are deeply moved by the Grace of our Lord Jesus, and we want to remind our listeners of His unending love and mercy through our music. We love to write, and to share our stories, and we hope that we can inspire our listeners to the awe and wonder of creation, and of the One who made it all.
                 </p>
               </div>
-              <div className="about-subsection">
-                {/* <h3>Meet the Crew</h3>
+              {/*<div className="about-subsection">
+                 <h3>Meet the Crew</h3>
                 <p>Gracechase is brought to life by a team of AI "characters" and human collaborators:</p>
                 <ul>
                   <li><strong>Grace:</strong> The lead AI composer, inspired by classical elegance.</li>
