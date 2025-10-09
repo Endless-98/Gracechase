@@ -3,6 +3,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import AlbumItem from './components/AlbumItem.jsx';
 import Blog from './components/Blog.jsx';
 import BlogPost from './components/BlogPost.jsx';
+import About from './components/About.jsx';
 import './App.css';
 
 function App() {
@@ -90,6 +91,7 @@ function App() {
       } />
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/:id" element={<BlogPost />} />
+      <Route path="/about" element={<About />} />
     </Routes>
   );
 }

@@ -15,6 +15,16 @@ Border Gray: #e0e0e0
   border: 0;
  }
 
+a {
+  color: #D4AF37;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #D4AF37;
+  text-decoration: underline;
+}
+
 #root {
   margin: 0;
   padding: 0;
