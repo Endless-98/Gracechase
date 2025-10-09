@@ -1,5 +1,6 @@
 # Gracechase.com
 
+https://endless-98.github.io/Gracechase/
 A clean, modern website for the artist Gracechase, built with React. Showcases music albums and blog posts with a golden theme.
 
 ![Gracechase Hero](public/images/site-banners/YMBG.jpg)
@@ -22,18 +23,6 @@ This is a single-page website featuring a home page with album displays and a bl
 - React Router (for page navigation)
 - CSS (for styling)
 - GitHub Pages (for hosting)
-
-## Installation
-
-1. Download: `git clone https://github.com/Endless-98/Gracechase.com.git`
-2. Install: `npm install`
-3. Run: `npm run dev` (opens in browser)
-
-## Usage
-
-- View the site at http://localhost:5173
-- Build for production: `npm run build`
-- Deploy: `npm run deploy`
 
 ## Skills Demonstrated
 
