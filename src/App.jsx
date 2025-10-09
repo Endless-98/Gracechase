@@ -3,7 +3,6 @@ import { Routes, Route, Link } from 'react-router-dom';
 import AlbumItem from './components/AlbumItem.jsx';
 import Blog from './components/Blog.jsx';
 import BlogPost from './components/BlogPost.jsx';
-import About from './components/About.jsx';
 import './App.css';
 
 function App() {
@@ -32,8 +31,21 @@ function App() {
           {/* Navbar */}
           <div className="header">
             <nav className="navbar">
-              <p><Link to="/#" className="nav-link">Home</Link></p>
-              <p><Link to="/about" className="nav-link">About</Link></p>
+              <p><Link to="/" className="nav-link">Home</Link></p>
+              <p><Link to="/" className="nav-link" onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('about');
+                if (element) {
+                  const offset = 0; // Adjust this value to control how far down it scrolls (e.g., 0 for top of section, higher for below)
+                  const rect = element.getBoundingClientRect();
+                  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                  const elementTop = rect.top + scrollTop;
+                  window.scrollTo({
+                    top: elementTop - offset,
+                    behavior: 'smooth'
+                  });
+                }
+              }}>About</Link></p>
               <p><Link to="/releases" className="nav-link">Releases</Link></p>
               <p><Link to="/blog" className="nav-link">Blog</Link></p>
               <p><Link to="/contact" className="nav-link">Contact</Link></p>
@@ -67,21 +79,36 @@ function App() {
             </div>
           </section>
 
-          {/* Meet the Crew Section */}
-          {/*      
-          <section className="meet-the-crew-section">
-            <h2>Meet the Crew</h2>
-            <p>Some kind of explanation that they are AI characters</p>
-            <div className="crew-list">
-              <h4>List the cast of characters</h4>
-              <ul>
-                <li>Character 1: Description</li>
-                <li>Character 2: Description</li>
-                <li>Character 3: Description</li>
-              </ul>
+          {/* About Section */}
+          <section className="about-section" id="about">
+            <h2>About Gracechase</h2>
+            <p>Grace has been chasing you. Maybe it's time to stop running.</p>
+            <div className="about-content">
+              <div className="about-subsection">
+                <h3>Our Story</h3>
+                <p>
+                  Hey there! We are Gracechase. We're an innovative music group that combines clever original lyrics with AI-generated melodies to create songs that are beautiful and wonderful, and aim to point the listener back to our Creator.
+                </p>
+              </div>
+              <div className="about-subsection">
+                <h3>What inspires us</h3>
+                <p>
+                  We are deeply moved by the Grace of our Lord Jesus, and we want to remind our listeners of His unending love and mercy through our music. We love to write, and to share our stories, and we hope that we can inspire our listeners to the awe and wonder of creation, and of the One who made it all.
+                </p>
+              </div>
+              <div className="about-subsection">
+                <h3>Meet the Crew</h3>
+                <p>Gracechase is brought to life by a team of AI "characters" and human collaborators:</p>
+                <ul>
+                  <li><strong>Grace:</strong> The lead AI composer, inspired by classical elegance.</li>
+                  <li><strong>Chase:</strong> The rhythm generator, driven by dynamic energy.</li>
+                  <li><strong>Harmony:</strong> The human arranger, adding emotional depth.</li>
+                  <li><strong>Echo:</strong> The sound designer, crafting immersive audio experiences.</li>
+                </ul>
+              </div>
             </div>
           </section>
-          */}
+
           <section className='footer'>
             <div className='footer-content'>
               <p>&copy; 2025 Gracechase. All rights reserved.</p>
@@ -91,7 +118,6 @@ function App() {
       } />
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/:id" element={<BlogPost />} />
-      <Route path="/about" element={<About />} />
     </Routes>
   );
 }

@@ -15,6 +15,10 @@ Border Gray: #e0e0e0
   border: 0;
  }
 
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   color: #D4AF37;
   text-decoration: none;
@@ -112,6 +116,61 @@ a:hover {
   gap: 2rem;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.about-section {
+  padding: 2rem;
+  background-color: #f5f5f5; /* Light gray */
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #291605; /* Dark Brown */
+}
+
+.about-section > p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-subsection h3 {
+  font-size: 1.5rem;
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+.about-subsection p {
+  color: #000000;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.about-subsection ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.about-subsection li {
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.about-subsection strong {
+  color: #D4AF37;
 }
 
 .footer {
