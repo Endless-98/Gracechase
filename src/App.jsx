@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import AlbumItem from './components/AlbumItem.jsx';
 import Blog from './components/Blog.jsx';
+import BlogPost from './components/BlogPost.jsx';
 import './App.css';
 
 function App() {
@@ -88,6 +89,7 @@ function App() {
         </div>
       } />
       <Route path="/blog" element={<Blog />} />
+      <Route path="/blog/:id" element={<BlogPost />} />
     </Routes>
   );
 }

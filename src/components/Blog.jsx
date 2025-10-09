@@ -7,17 +7,17 @@ const Blog = () => {
       id: 1,
       title: 'Our Journey with AI Music',
       date: 'October 8, 2025',
-      image: 'images/album-covers/YourMajesty_AlbumCover.png', // Placeholder image
+      image: 'images/album-covers/YourMajesty_AlbumCover.png',
       excerpt: 'Discover how Gracechase blends AI creativity with human emotion to create unique music experiences.',
-      content: 'Full content here...'
+      content: 'Full content for the first post goes here. This is where the detailed article would be displayed.'
     },
     {
       id: 2,
       title: 'Behind the Scenes: Creating "Your Majesty"',
       date: 'October 5, 2025',
-      image: 'images/site-banners/YMBG.jpg', // Placeholder image
+      image: 'images/site-banners/YMBG.jpg',
       excerpt: 'A deep dive into the inspiration and production process behind our latest album.',
-      content: 'Full content here...'
+      content: 'Full content for the second post. More details about the album creation process.'
     }
   ];
 
@@ -32,10 +32,10 @@ const Blog = () => {
         {posts.map(post => (
           <article key={post.id} className="blog-post">
             <img src={post.image} alt={post.title} className="blog-post-image" />
-            <h2>{post.title}</h2>
+            <h2><Link to={`/blog/${post.id}`} className="post-link">{post.title}</Link></h2>
             <p className="post-date">{post.date}</p>
             <p className="post-excerpt">{post.excerpt}</p>
-            <a href="#" className="read-more">Read More</a>
+            <Link to={`/blog/${post.id}`} className="read-more">Read More</Link>
           </article>
         ))}
       </section>
