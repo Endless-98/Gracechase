@@ -3,6 +3,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import AlbumItem from './components/AlbumItem.jsx';
 import Blog from './components/Blog.jsx';
 import BlogPost from './components/BlogPost.jsx';
+import Privacy from './components/Privacy.jsx';
 import './App.css';
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
                 e.preventDefault();
                 const element = document.getElementById('about');
                 if (element) {
-                  const offset = 0; // Adjust this value to control how far down it scrolls (e.g., 0 for top of section, higher for below)
+                  const offset = 100;
                   const rect = element.getBoundingClientRect();
                   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                   const elementTop = rect.top + scrollTop;
@@ -46,7 +47,20 @@ function App() {
                   });
                 }
               }}>About</Link></p>
-              <p><Link to="/releases" className="nav-link">Releases</Link></p>
+              <p><Link to="/" className="nav-link" onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('releases');
+                if (element) {
+                  const offset = 100;
+                  const rect = element.getBoundingClientRect();
+                  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                  const elementTop = rect.top + scrollTop;
+                  window.scrollTo({
+                    top: elementTop - offset,
+                    behavior: 'smooth'
+                  });
+                }
+              }}>Releases</Link></p>
               <p><Link to="/blog" className="nav-link">Blog</Link></p>
               <p><Link to="/contact" className="nav-link">Contact</Link></p>
             </nav>
@@ -62,7 +76,7 @@ function App() {
           </header>
 
           {/* Releases Section */}
-          <section className="releases-section">
+          <section className="releases-section" id="releases">
             <h2>Releases</h2>
             <div className="releases-grid">
               {/* Featured Album using AlbumItem */}
@@ -111,13 +125,14 @@ function App() {
 
           <section className='footer'>
             <div className='footer-content'>
-              <p>&copy; 2025 Gracechase. All rights reserved.</p>
+              <p>&copy; 2025 Gracechase. All rights reserved. | <Link to="/privacy">Privacy Policy</Link></p>
             </div>
           </section>
         </div>
       } />
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/:id" element={<BlogPost />} />
+      <Route path="/privacy" element={<Privacy />} />
     </Routes>
   );
 }

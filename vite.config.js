@@ -8,5 +8,5 @@ export default defineConfig({
     emptyOutDir: true,
     assetsInlineLimit: 0, // Ensure large images aren’t inlined
   },
-  base: '/',
+  base: process.env.VITE_GITHUB_PAGES ? '/Gracechase/' : '/',
 });

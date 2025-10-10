@@ -1,0 +1,54 @@
+.privacy-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  min-height: 100vh;
+  position: relative;
+}
+
+.home-link {
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  color: #D4AF37;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.home-link:hover {
+  text-decoration: underline;
+}
+
+.privacy-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.privacy-header h1 {
+  font-size: 3rem;
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+.privacy-header p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.privacy-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.privacy-section h2 {
+  font-size: 1.8rem;
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+.privacy-section p {
+  color: #000000;
+  line-height: 1.6;
+}

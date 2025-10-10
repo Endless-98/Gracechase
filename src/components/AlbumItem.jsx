@@ -17,21 +17,21 @@ const AlbumItem = ({ spotifyLink, youtubeMusicLink, appleMusicLink }) => {
         )}
         <div className="streaming-links">
           {spotifyLink && (
-            <a href={spotifyLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Spotify">
+            <a href={spotifyLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Spotify" onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'spotify' })}>
               <svg role="img" viewBox="0 0 24 24" width="24" height="24" fill="rgba(125, 125, 125, 1)">
                 <path d={siSpotify.path} />
               </svg>
             </a>
           )}
           {youtubeMusicLink && (
-            <a href={youtubeMusicLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on YouTube music">
+            <a href={youtubeMusicLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on YouTube music" onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'youtube_music' })}>
               <svg role="img" viewBox="0 0 24 24" width="24" height="24" fill="rgba(125, 125, 125, 1)">
                 <path d={siYoutubemusic.path} />
               </svg>
             </a>
           )}
           {appleMusicLink && (
-            <a href={appleMusicLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Apple Music">
+            <a href={appleMusicLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Apple Music" onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'apple_music' })}>
               <svg role="img" viewBox="0 0 24 24" width="24" height="24" fill="rgba(125, 125, 125, 1)">
                 <path d={siApplemusic.path} />
               </svg>
