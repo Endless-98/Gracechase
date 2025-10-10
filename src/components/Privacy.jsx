@@ -69,7 +69,7 @@ const Privacy = () => {
         <div className="privacy-section">
           <h2>Contact Us</h2>
           <p>
-            If you have questions, email us at [your-email@example.com].
+            If you have questions, <Link to="/contact">send us a message</Link> or email us at contact.gracechase@gmail.com.
           </p>
         </div>
       </section>

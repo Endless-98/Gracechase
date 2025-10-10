@@ -4,6 +4,7 @@ import AlbumItem from './components/AlbumItem.jsx';
 import Blog from './components/Blog.jsx';
 import BlogPost from './components/BlogPost.jsx';
 import Privacy from './components/Privacy.jsx';
+import Contact from './components/Contact.jsx';
 import './App.css';
 
 function App() {
@@ -32,7 +33,6 @@ function App() {
           {/* Navbar */}
           <div className="header">
             <nav className="navbar">
-              <p><Link to="/" className="nav-link">Home</Link></p>
               <p><Link to="/" className="nav-link" onClick={(e) => {
                 e.preventDefault();
                 const element = document.getElementById('about');
@@ -61,7 +61,7 @@ function App() {
                   });
                 }
               }}>Releases</Link></p>
-              <p><Link to="/blog" className="nav-link">Blog</Link></p>
+              {/* <p><Link to="/blog" className="nav-link">Blog</Link></p> */}
               <p><Link to="/contact" className="nav-link">Contact</Link></p>
             </nav>
           </div>
@@ -101,7 +101,7 @@ function App() {
               <div className="about-subsection">
                 <h3>Our Story</h3>
                 <p>
-                  Hey there! We are Gracechase. We're an innovative music group that combines clever original lyrics with AI-generated melodies to create songs that are beautiful and wonderful, and aim to point the listener back to our Creator.
+                  Hey there! We are Gracechase. We're an innovative music group that combines clever original lyrics with cutting-edge AI tools to create songs that are beautiful and wonderful, and aim to point the listener back to our Creator.
                 </p>
               </div>
               <div className="about-subsection">
@@ -133,6 +133,7 @@ function App() {
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/:id" element={<BlogPost />} />
       <Route path="/privacy" element={<Privacy />} />
+      <Route path="/contact" element={<Contact />} />
     </Routes>
   );
 }
