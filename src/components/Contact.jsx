@@ -9,7 +9,7 @@ const Contact = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success' or 'error'
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', 'config-error'
 
   const handleChange = (e) => {
     setFormData({
@@ -22,6 +22,13 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
+
+    // Check if API URL is configured
+    if (!import.meta.env.VITE_API_URL || import.meta.env.VITE_API_URL === 'http://localhost:5000') {
+      setSubmitStatus('config-error');
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/api/send-email`, {
@@ -103,6 +110,11 @@ const Contact = () => {
       {submitStatus === 'error' && (
         <div className="status-message error">
           ❌ Failed to send message. Please try again later or contact us directly at contact.gracechase@gmail.com
+        </div>
+      )}
+      {submitStatus === 'config-error' && (
+        <div className="status-message error">
+          ⚠️ Contact form is currently being set up. Please email us directly at contact.gracechase@gmail.com
         </div>
       )}
     </div>
