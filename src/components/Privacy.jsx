@@ -11,7 +11,8 @@ const Privacy = () => {
   }, []);
 
   const handleOptOut = () => {
-    document.cookie = 'ga-disable-GA_MEASUREMENT_ID=true; path=/; max-age=31536000';
+    const gaId = import.meta.env.VITE_GA_MEASUREMENT_ID;
+    document.cookie = `ga-disable-${gaId}=true; path=/; max-age=31536000`;
     setOptedOut(true);
     alert('You have opted out of Google Analytics tracking.');
   };
