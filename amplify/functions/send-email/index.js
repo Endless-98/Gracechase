@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.handler = void 0;
 const client_ses_1 = require("@aws-sdk/client-ses");
 const sesClient = new client_ses_1.SESClient({
-    region: process.env.AWS_REGION || 'us-west-2',
+    region: 'us-east-1',
 });
 const handler = async (event) => {
     // Handle CORS preflight

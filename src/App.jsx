@@ -101,7 +101,7 @@ function App() {
               <div className="about-subsection">
                 <h3>Our Story</h3>
                 <p>
-                  Hey there! We are Gracechase. We're an innovative music group that combines clever original lyrics with cutting-edge AI tools to create songs that are beautiful and wonderful, and aim to point the listener back to our Creator.
+                  Hey there! We are Gracechase. We're an innovative music group that combines our musical creativity with cutting edge AI technology to create songs that are beautiful and exciting, and aim to point the listener back to our Creator.
                 </p>
               </div>
               <div className="about-subsection">

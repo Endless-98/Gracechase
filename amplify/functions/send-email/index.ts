@@ -1,7 +1,7 @@
 import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 
 const sesClient = new SESClient({
-  region: process.env.AWS_REGION || 'us-west-2',
+  region: 'us-east-1',
 });
 
 export const handler = async (event: any) => {
