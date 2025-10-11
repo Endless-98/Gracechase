@@ -4,6 +4,6 @@
     "@aws-sdk/client-ses": "^3.490.0"
   },
   "devDependencies": {
-    "@types/node": "^20.0.0"
+    "@types/node": "^20.19.20"
   }
 }

@@ -23,15 +23,8 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // Check if API URL is configured
-    if (!import.meta.env.VITE_API_URL || import.meta.env.VITE_API_URL === 'http://localhost:5000') {
-      setSubmitStatus('config-error');
-      setIsSubmitting(false);
-      return;
-    }
-
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/send-email`, {
+      const response = await fetch('https://qo4vku6ydxrvut65ya7xadlzva0petlx.lambda-url.us-east-1.on.aws/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
