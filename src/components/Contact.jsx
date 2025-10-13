@@ -24,7 +24,7 @@ const Contact = () => {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('https://qo4vku6ydxrvut65ya7xadlzva0petlx.lambda-url.us-east-1.on.aws/', {
+      const response = await fetch('https://7la2s2m6hxk3vcqn2evjknxaxa0qbosy.lambda-url.us-east-2.on.aws/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
