@@ -18,7 +18,7 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = async (e) => {Did y
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
