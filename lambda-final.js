@@ -24,12 +24,6 @@ export const handler = async (event) => {
   if (method === 'OPTIONS') {
     return {
       statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': isAllowedOrigin ? origin : 'https://www.gracechase.com', // Dynamic
-        'Access-Control-Allow-Methods': 'OPTIONS, POST',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Max-Age': '86400',
-      },
       body: '',
     };
   }
@@ -38,12 +32,6 @@ export const handler = async (event) => {
   if (!isAllowedOrigin) {
     return {
       statusCode: 403,
-      headers: {
-        'Access-Control-Allow-Origin': 'https://www.gracechase.com',
-        'Access-Control-Allow-Methods': 'OPTIONS, POST',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify({ error: 'Origin not allowed', origin }),
     };
   }
@@ -52,12 +40,6 @@ export const handler = async (event) => {
   if (method !== 'POST') {
     return {
       statusCode: 405,
-      headers: {
-        'Access-Control-Allow-Origin': origin,  // Dynamic: Return actual origin
-        'Access-Control-Allow-Methods': 'OPTIONS, POST',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify({ error: 'Method not allowed', method }),
     };
   }
@@ -68,12 +50,6 @@ export const handler = async (event) => {
     if (!message) {
       return {
         statusCode: 400,
-        headers: {
-          'Access-Control-Allow-Origin': origin,  // Dynamic: Return actual origin
-          'Access-Control-Allow-Methods': 'OPTIONS, POST',
-          'Access-Control-Allow-Headers': 'Content-Type',
-          'Content-Type': 'application/json',
-        },
         body: JSON.stringify({ error: 'Message is required' }),
       };
     }
@@ -103,24 +79,12 @@ ${message}`,
 
     return {
       statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': origin,  // Dynamic: Return actual origin
-        'Access-Control-Allow-Methods': 'OPTIONS, POST',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify({ success: true, message: 'Email sent successfully' }),
     };
   } catch (error) {
     console.error('Email send error:', error.message, error.stack);
     return {
       statusCode: 500,
-      headers: {
-        'Access-Control-Allow-Origin': origin,  // Dynamic: Return actual origin
-        'Access-Control-Allow-Methods': 'OPTIONS, POST',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify({ error: 'Failed to send email', details: error.message }),
     };
   }

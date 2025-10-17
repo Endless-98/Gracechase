@@ -97,7 +97,7 @@ const Contact = () => {
       </section>
       {submitStatus === 'success' && (
         <div className="status-message success">
-          ✅ Message sent successfully! We'll get back to you soon.
+          ✅ Message sent successfully! Thank you for reaching out!
         </div>
       )}
       {submitStatus === 'error' && (
