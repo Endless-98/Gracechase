@@ -125,7 +125,7 @@ function App() {
 
           <section className='footer'>
             <div className='footer-content'>
-              <p>&copy; 2025 Gracechase. All rights reserved. | <Link to="/privacy">Privacy Policy</Link></p>
+              <p>&copy; {new Date().getFullYear()} Gracechase. All rights reserved. | <Link to="/privacy">Privacy Policy</Link></p>
             </div>
           </section>
         </div>
