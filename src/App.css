@@ -6,7 +6,16 @@ Black: #000000
 Dark Brown: #291605
 Gold: #D4AF37
 Border Gray: #e0e0e0
+Secondary Text: #666666
+Muted Text: #999999
 */
+
+/* Typography Scale */
+h1 { font-size: 2.5rem; font-weight: 600; color: #000000; }
+h2 { font-size: 2rem; font-weight: 600; color: #291605; }
+h3 { font-size: 1.5rem; font-weight: 600; color: #000000; }
+p { font-size: 1rem; line-height: 1.6; color: #000000; }
+small { font-size: 0.875rem; color: #666666; }
 
 *
  {
@@ -87,6 +96,19 @@ a:hover {
   object-fit: cover;
 }
 
+.newsletter-section {
+  padding: 2rem;
+  background-color: #f5f5f5; /* Light gray to match other sections */
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.newsletter-container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .releases-section {
   display: flex;
   flex-direction: column;
@@ -99,9 +121,7 @@ a:hover {
 
 .releases-section h2 {
   text-align: center;
-  font-size: 2rem;
   margin-bottom: 1rem;
-  color: #291605; /* Dark Brown */
 }
 
 .releases-grid {
@@ -127,14 +147,10 @@ a:hover {
 }
 
 .about-section h2 {
-  font-size: 2rem;
   margin-bottom: 1rem;
-  color: #291605; /* Dark Brown */
 }
 
 .about-section > p {
-  font-size: 1.2rem;
-  color: #666;
   margin-bottom: 2rem;
 }
 
@@ -148,14 +164,10 @@ a:hover {
 }
 
 .about-subsection h3 {
-  font-size: 1.5rem;
-  color: #000000;
   margin-bottom: 0.5rem;
 }
 
 .about-subsection p {
-  color: #000000;
-  line-height: 1.6;
   margin-bottom: 1rem;
 }
 
@@ -185,8 +197,7 @@ a:hover {
 }
 
 .footer-content p {
-  color: #000000;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
 }
 
 /* Utility and other styles */
@@ -265,7 +276,7 @@ a:hover {
 }
 
 li, p, h1, h2, h3, h4, h5, h6 {
-  color: #000000; /* Black */
+  color: #000000;
 }
 
 /* Responsive adjustments */

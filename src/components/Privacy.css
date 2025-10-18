@@ -1,10 +1,22 @@
 .privacy-page {
-  max-width: 800px;
+  width: 100%;
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 2rem;
   background-color: #ffffff;
   min-height: 100vh;
   position: relative;
+}
+
+@media (max-width: 768px) {
+  .privacy-page {
+    max-width: 100%;
+  }
+}
+
+.privacy-content-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .home-link {
@@ -43,14 +55,12 @@
 }
 
 .privacy-header h1 {
-  font-size: 3rem;
-  color: #000000;
   margin-bottom: 0.5rem;
 }
 
 .privacy-header p {
-  font-size: 1.2rem;
-  color: #666;
+  font-size: 1rem;
+  color: #666666;
 }
 
 .privacy-content {
@@ -60,8 +70,6 @@
 }
 
 .privacy-section h2 {
-  font-size: 1.8rem;
-  color: #000000;
   margin-bottom: 1rem;
 }
 

@@ -52,64 +52,70 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
-      <Link to="/" className="home-link">← Back to Home</Link>
-      <header className="contact-header">
-        <h1>Contact Us</h1>
-        <p>We'd love to hear from you! Send us a message. Name and email are optional - you can provide them if you'd like us to get back to you.</p>
-        <p className="form-note">Your message will be sent directly to our email.</p>
-      </header>
-      <section className="contact-content">
-        <form onSubmit={handleSubmit} className="contact-form">
-          <div className="form-group">
-            <label htmlFor="name">Name <span className="optional">(optional)</span></label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-            />
+      <div className="contact-content-wrapper">
+        <Link to="/" className="home-link">← Back to Home</Link>
+        <header className="contact-header">
+          <h1>Contact Us</h1>
+          <p>We'd love to hear from you! Send us a message. Name and email are optional - you can provide them if you'd like us to get back to you.</p>
+          <p className="form-note">Your message will be sent directly to our email.</p>
+        </header>
+        <section className="contact-content">
+          <form onSubmit={handleSubmit} className="contact-form">
+            <div className="form-group">
+              <label htmlFor="name">Name <span className="optional">(optional)</span></label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="contact-input"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email <span className="optional">(optional)</span></label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="contact-input"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                className="contact-textarea"
+              ></textarea>
+            </div>
+            <button type="submit" className="submit-btn" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </button>
+          </form>
+        </section>
+
+        {submitStatus === 'success' && (
+          <div className="status-message success">
+            ✅ Message sent successfully! Thank you for reaching out!
           </div>
-          <div className="form-group">
-            <label htmlFor="email">Email <span className="optional">(optional)</span></label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
+        )}
+        {submitStatus === 'error' && (
+          <div className="status-message error">
+            ❌ Failed to send message. Please try again later or contact us directly at contact.gracechase@gmail.com
           </div>
-          <div className="form-group">
-            <label htmlFor="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-            ></textarea>
+        )}
+        {submitStatus === 'config-error' && (
+          <div className="status-message error">
+            ⚠️ Contact form is currently being set up. Please email us directly at contact.gracechase@gmail.com
           </div>
-          <button type="submit" className="submit-btn" disabled={isSubmitting}>
-            {isSubmitting ? 'Sending...' : 'Send Message'}
-          </button>
-        </form>
-      </section>
-      {submitStatus === 'success' && (
-        <div className="status-message success">
-          ✅ Message sent successfully! Thank you for reaching out!
-        </div>
-      )}
-      {submitStatus === 'error' && (
-        <div className="status-message error">
-          ❌ Failed to send message. Please try again later or contact us directly at contact.gracechase@gmail.com
-        </div>
-      )}
-      {submitStatus === 'config-error' && (
-        <div className="status-message error">
-          ⚠️ Contact form is currently being set up. Please email us directly at contact.gracechase@gmail.com
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
