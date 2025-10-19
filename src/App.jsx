@@ -65,7 +65,6 @@ function App() {
               }}>Releases</Link></p>
               <p><Link to="/newsletter" className="nav-link">Stay in touch</Link></p>
               {/* <p><Link to="/blog" className="nav-link">Blog</Link></p> */}
-              <p><Link to="/contact" className="nav-link">Contact</Link></p>
             </nav>
           </div>
 
@@ -128,7 +127,13 @@ function App() {
 
           <section className='footer'>
             <div className='footer-content'>
-              <p>&copy; 2025 Gracechase. All rights reserved. | <Link to="/privacy">Privacy Policy</Link></p>
+              <p>&copy; 2025 Gracechase. All rights reserved. |
+                {' '}
+                <Link to="/privacy">Privacy Policy</Link>
+                {' '}|
+                {' '}
+                <Link to="/contact">Contact</Link>
+              </p>
             </div>
           </section>
         </div>

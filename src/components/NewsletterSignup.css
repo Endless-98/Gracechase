@@ -219,6 +219,15 @@
   border: 1px solid #f5c6cb;
 }
 
+/* Inline contact link under the form */
+.contact-inline {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* Use default link colors; no override necessary since global a styles apply */
+
 @media (max-width: 768px) {
   .newsletter-content-wrapper {
     padding: 1rem;

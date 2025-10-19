@@ -12,6 +12,7 @@ const NewsletterSignup = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState(null); // 'success', 'error'
+  const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((formData.email || '').trim());
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -173,7 +174,12 @@ const NewsletterSignup = () => {
             <button
               type="submit"
               className="submit-btn"
-              disabled={isSubmitting || !formData.acceptTerms || formData.interests.length === 0}
+              disabled={
+                isSubmitting ||
+                !formData.acceptTerms ||
+                formData.interests.length === 0 ||
+                !isEmailValid
+              }
             >
               {isSubmitting ? 'Subscribing...' : 'Subscribe to Updates'}
             </button>
@@ -190,6 +196,11 @@ const NewsletterSignup = () => {
                 </div>
               )}
             </div>
+
+            {/* Inline contact link at the very bottom, same styling as footer links */}
+            <p className="contact-inline">
+              Need help or have a question? <Link to="/contact">Contact us</Link>
+            </p>
           </form>
           {/* Email send is disabled for now; no user-facing dev/error details shown */}
         </section>
