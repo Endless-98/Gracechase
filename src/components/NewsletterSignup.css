@@ -165,26 +165,32 @@
   box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
 }
 
-.submit-btn {
+.newsletter-form .submit-btn {
   width: 100%;
   padding: 1rem;
-  background-color: #D4AF37;
+  background-color: #D4AF37; /* brand gold */
   color: #000000;
   border: none;
   border-radius: 8px;
   font-size: 1.1rem;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.12s ease;
 }
 
-.submit-btn:hover:not(:disabled) {
-  background-color: #b8942f;
+/* Scoped hover for the newsletter form button so other .submit-btn rules don't override it */
+.newsletter-form .submit-btn:not(:disabled):hover {
+  background-color: #e6cf78; /* lighter gold on hover */
   transform: translateY(-1px);
 }
 
-.submit-btn:disabled {
-  background-color: #cccccc;
+.newsletter-form .submit-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.18);
+}
+
+.newsletter-form .submit-btn:disabled {
+  background-color: #666666;
   cursor: not-allowed;
   transform: none;
 }
