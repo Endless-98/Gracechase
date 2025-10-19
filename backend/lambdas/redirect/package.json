@@ -1,0 +1,15 @@
+{
+  "name": "redirect",
+  "version": "1.0.0",
+  "description": "Purpose: Safely update a subscriber's DynamoDB TTL when they click a link, then 302-redirect them to the final URL. Ensures great UX (no interstitial), security (signed tokens), and reliable retention management.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.913.0"
+  }
+}

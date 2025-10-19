@@ -50,5 +50,6 @@ config/secrets.*
 
 # amplify
 .amplify
-amplify_outputs*
+# Keep amplify outputs tracked (required by the frontend at build time)
+# amplify_outputs*
 amplifyconfiguration*

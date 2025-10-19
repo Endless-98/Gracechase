@@ -12,6 +12,16 @@ const schema = a.schema({
       content: a.string(),
     })
     .authorization((allow) => [allow.guest()]),
+  NewsletterSignup: a
+    .model({
+      email: a.string().required(),
+      interests: a.string().array(),
+      // deletion metadata: timestamp when user requested deletion and TTL epoch seconds
+      // optional string fields; values will be stored as ISO timestamps or epoch seconds
+      deletedAt: a.string(),
+      ttl: a.string(),
+    })
+    .authorization((allow) => [allow.guest()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
