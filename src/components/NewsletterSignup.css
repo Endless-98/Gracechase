@@ -88,14 +88,14 @@
 }
 
 .checkbox-group {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
+  /* Text on the left, checkbox on the right; text can wrap without overlap */
+  display: grid;
+  grid-template-columns: 1fr 20px; /* label grows, checkbox stays fixed */
+  column-gap: 0.75rem;
   margin-top: 0.5rem;
-  align-items: center;
+  align-items: start;
   padding: 0.5rem 0;
   border-bottom: 1px solid #f0f0f0;
-  position: relative;
 }
 
 .checkbox-group:last-child {
@@ -106,8 +106,9 @@
   font-size: 1rem;
   color: #000000;
   font-weight: normal;
-  text-align: center;
-  padding-left: 2rem;
+  text-align: left;
+  padding-left: 0; /* grid provides spacing */
+  grid-column: 1; /* ensure label stays in the left column */
 }
 
 .checkbox {
@@ -117,10 +118,10 @@
 }
 
 .checkbox-group .checkbox {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  /* Place checkbox in the right column; align to top/right */
+  grid-column: 2;
+  align-self: start;
+  justify-self: end;
 }
 
 .terms-label {
