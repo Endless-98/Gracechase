@@ -1,3 +1,7 @@
+#root{
+    background-color: #555555;
+}
+
 .newsletter-page {
   max-width: 750px;
   margin: 0 auto;
@@ -83,7 +87,7 @@
 
 .optional {
   font-weight: normal;
-  color: hsl(0, 0%, 40%);
+  color: hsl(0, 0%, 66%);
   font-size: 0.875rem;
 }
 
@@ -115,6 +119,10 @@
   width: 16px;
   height: 16px;
   cursor: pointer;
+  color: #ffffff; /* ensure checkbox background is white */
+  border: 1px solid #e0e0e0;
+  /* Use accent-color so modern browsers render the check/filled color with the brand gold */
+  accent-color: #D4AF37;
 }
 
 .checkbox-group .checkbox {
@@ -122,6 +130,19 @@
   grid-column: 2;
   align-self: start;
   justify-self: end;
+}
+
+/* Explicitly target native checkbox/radio inputs within the newsletter form to ensure white background */
+.newsletter-form input[type="checkbox"],
+.newsletter-form input[type="radio"] {
+  background-color: #ffffff;
+  accent-color: #D4AF37;
+  border: 1px solid #e0e0e0;
+}
+
+/* Ensure unchecked checkbox uses light (white) control theme without affecting other elements */
+.newsletter-form input[type="checkbox"] {
+  color-scheme: light;
 }
 
 .terms-label {
@@ -153,6 +174,7 @@
 .form-group textarea {
   padding: 0.75rem;
   border: 1px solid #e0e0e0;
+  background-color: #ffffff;
   border-radius: 4px;
   font-size: 1rem;
   box-sizing: border-box;

@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import AlbumItem from './components/AlbumItem.jsx';
 import Blog from './components/Blog.jsx';
 import BlogPost from './components/BlogPost.jsx';
@@ -10,6 +10,18 @@ import Unsubscribe from './components/Unsubscribe.jsx';
 import './App.css';
 
 function App() {
+  const location = useLocation();
+  // Toggle a class on <html> only for specific subpages where we want a dark root background
+  useEffect(() => {
+    const htmlEl = document.documentElement;
+    const darkRoutes = ['/contact', '/privacy', '/newsletter'];
+    const isDarkSubpage = darkRoutes.includes(location.pathname);
+    if (isDarkSubpage) {
+      htmlEl.classList.add('subpage');
+    } else {
+      htmlEl.classList.remove('subpage');
+    }
+  }, [location.pathname]);
   // Sample album data (replace with API data in a real MERN app)
   const albums = [
     {
