@@ -61,6 +61,7 @@ html.subpage {
 /* Ensure form controls use a white background site-wide for readability */
 input, select, textarea {
   background-color: #ffffff;
+  color: #000000; /* ensure text typed into inputs is black */
 }
 
 /* Make checkboxes and radios visually match the form controls: white background and brand accent */
