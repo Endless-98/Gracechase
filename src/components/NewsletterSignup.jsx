@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import './NewsletterSignup.css';
 
 const NewsletterSignup = () => {
+  // Feature flag: disable confirmation email send until SES production access is granted
+  const shouldSendConfirmation = import.meta.env.VITE_SEND_CONFIRM_EMAIL === 'true';
   const [formData, setFormData] = useState({
     email: '',
     interests: [],
@@ -40,16 +42,67 @@ const NewsletterSignup = () => {
     setIsSubmitting(true);
     setStatus(null);
 
-    // Simulate successful submission
-    setTimeout(() => {
+    try {
+      const { generateClient } = await import('aws-amplify/data');
+      const client = generateClient();
+
+      // Normalize email to lowercase for consistent lookups
+      const normalizedEmail = (formData.email || '').trim().toLowerCase();
+
+  // Upsert behavior: if email exists, update interests; otherwise create
+  if (import.meta.env.DEV) console.log('Checking for existing signup by email...');
+      const { data: existingList } = await client.models.NewsletterSignup.list({
+        filter: { email: { eq: normalizedEmail } },
+        limit: 1,
+      });
+      let dbResult;
+      if (existingList && existingList.length > 0) {
+        const existing = existingList[0];
+  if (import.meta.env.DEV) console.log('Existing signup found. Updating interests for id:', existing.id);
+        dbResult = await client.models.NewsletterSignup.update({
+          id: existing.id,
+          interests: formData.interests,
+        });
+      } else {
+  if (import.meta.env.DEV) console.log('No existing signup found. Creating new entry...');
+        dbResult = await client.models.NewsletterSignup.create({
+          email: normalizedEmail,
+          interests: formData.interests,
+        });
+      }
+  if (import.meta.env.DEV) console.log('NewsletterSignup upsert result:', dbResult);
+      // For now: skip confirmation email; treat DB create as success and clear form
+      // When ready, set VITE_SEND_CONFIRM_EMAIL=true and provide VITE_NEWSLETTER_CONFIRM_URL to enable sending.
+      if (shouldSendConfirmation) {
+        const confirmUrl = import.meta.env.VITE_NEWSLETTER_CONFIRM_URL;
+        if (confirmUrl) {
+          // Intentionally disabled in this environment; leaving structure for future re-enable.
+          // await fetch(confirmUrl, { ... })
+        }
+      }
       setStatus('success');
       setFormData({
         email: '',
         interests: [],
         acceptTerms: false
       });
+
+      // Track newsletter signup conversion
+      if (window.twq) {
+        twq('event', 'tw-odx0z-odx10', {
+          value: null,
+          currency: null,
+          content_name: 'Newsletter Signup',
+          content_category: 'Newsletter',
+          conversion_id: 'newsletter_signup'
+        });
+      }
+    } catch (error) {
+  if (import.meta.env.DEV) console.error('Signup failed:', error);
+      setStatus('error');
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -58,7 +111,7 @@ const NewsletterSignup = () => {
         <Link to="/" className="home-link">← Back to Home</Link>
 
         <header className="newsletter-header">
-          <h1>Stay Connected</h1>
+          <h1>Stay In Touch</h1>
           <p>Join our community and be the first to know about new releases, behind-the-scenes content, and inspiration from Gracechase.</p>
         </header>
 
@@ -78,7 +131,7 @@ const NewsletterSignup = () => {
             </div>
 
             <div className="form-group">
-              <label>What interests you? <span className="optional">(select all that apply)</span></label>
+              <label>What interests you? <span className="optional">(select at least one)</span></label>
               <div className="checkbox-group">
                 <span className="option-text">New music releases</span>
                 <input
@@ -117,21 +170,28 @@ const NewsletterSignup = () => {
               </label>
             </div>
 
-            <button type="submit" className="submit-btn" disabled={isSubmitting || !formData.acceptTerms}>
+            <button
+              type="submit"
+              className="submit-btn"
+              disabled={isSubmitting || !formData.acceptTerms || formData.interests.length === 0}
+            >
               {isSubmitting ? 'Subscribing...' : 'Subscribe to Updates'}
             </button>
+            {/* Status messaging sits directly under the submit button inside the form */}
+            <div aria-live="polite" aria-atomic="true">
+              {status === 'success' && (
+                <div className="status-message success">
+                  Thanks for subscribing! We can't wait to share our next updates with you!
+                </div>
+              )}
+              {status === 'error' && (
+                <div className="status-message error">
+                  Something went wrong. Please try again or contact us directly.
+                </div>
+              )}
+            </div>
           </form>
-
-          {status === 'success' && (
-            <div className="status-message success">
-              ✅ Thanks for subscribing! Check your email to confirm your subscription.
-            </div>
-          )}
-          {status === 'error' && (
-            <div className="status-message error">
-              ❌ Something went wrong. Please try again or contact us directly.
-            </div>
-          )}
+          {/* Email send is disabled for now; no user-facing dev/error details shown */}
         </section>
       </div>
     </div>

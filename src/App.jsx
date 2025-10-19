@@ -6,6 +6,7 @@ import BlogPost from './components/BlogPost.jsx';
 import Privacy from './components/Privacy.jsx';
 import Contact from './components/Contact.jsx';
 import NewsletterSignup from './components/NewsletterSignup.jsx';
+import Unsubscribe from './components/Unsubscribe.jsx';
 import './App.css';
 
 function App() {
@@ -62,7 +63,7 @@ function App() {
                   });
                 }
               }}>Releases</Link></p>
-              <p><Link to="/newsletter" className="nav-link">Subscribe</Link></p>
+              <p><Link to="/newsletter" className="nav-link">Stay in touch</Link></p>
               {/* <p><Link to="/blog" className="nav-link">Blog</Link></p> */}
               <p><Link to="/contact" className="nav-link">Contact</Link></p>
             </nav>
@@ -137,6 +138,7 @@ function App() {
       <Route path="/privacy" element={<Privacy />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/newsletter" element={<NewsletterSignup />} />
+      <Route path="/unsubscribe" element={<Unsubscribe />} />
     </Routes>
   );
 }

@@ -1,8 +1,8 @@
 .newsletter-page {
-  width: 100%;
-  max-width: 1200px;
+  max-width: 750px;
   margin: 0 auto;
-  background-color: #f5f5f5;
+  padding: 2rem;
+  background-color: #ffffff;
   min-height: 100vh;
   position: relative;
 }
@@ -11,12 +11,6 @@
   .newsletter-page {
     max-width: 100%;
   }
-}
-
-.newsletter-content-wrapper {
-  max-width: 750px;
-  margin: 0 auto;
-  padding: 2rem;
 }
 
 .home-link {
@@ -51,22 +45,18 @@
 
 .newsletter-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .newsletter-header h1 {
   font-size: 3rem;
   color: #000000;
-  margin-bottom: 1rem;
-  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 .newsletter-header p {
   font-size: 1.2rem;
-  color: #666666;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
+  color: hsl(0, 0%, 40%);
 }
 
 .newsletter-form-section {
@@ -77,11 +67,6 @@
 .newsletter-form {
   width: 100%;
   max-width: 750px;
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 2.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .form-group {
@@ -98,7 +83,7 @@
 
 .optional {
   font-weight: normal;
-  color: #666666;
+  color: hsl(0, 0%, 40%);
   font-size: 0.875rem;
 }
 
@@ -108,8 +93,9 @@
   gap: 1rem;
   margin-top: 0.5rem;
   align-items: center;
-  padding: 0.75rem 0;
+  padding: 0.5rem 0;
   border-bottom: 1px solid #f0f0f0;
+  position: relative;
 }
 
 .checkbox-group:last-child {
@@ -120,12 +106,21 @@
   font-size: 1rem;
   color: #000000;
   font-weight: normal;
+  text-align: center;
+  padding-left: 2rem;
 }
 
 .checkbox {
   width: 16px;
   height: 16px;
   cursor: pointer;
+}
+
+.checkbox-group .checkbox {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .terms-label {
@@ -195,12 +190,14 @@
 }
 
 .status-message {
-  margin: 1.5rem auto 0;
+  margin: 0.75rem 0 0; /* tighter spacing under button */
   padding: 1.5rem;
   border-radius: 8px;
   text-align: center;
   font-weight: bold;
-  max-width: 600px;
+  width: 100%; /* fill the form container */
+  max-width: none;
+  box-sizing: border-box;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
