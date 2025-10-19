@@ -1,3 +1,7 @@
+#root{
+    background-color: #555555;
+}
+
 .newsletter-page {
   max-width: 750px;
   margin: 0 auto;
@@ -83,19 +87,19 @@
 
 .optional {
   font-weight: normal;
-  color: hsl(0, 0%, 40%);
+  color: hsl(0, 0%, 66%);
   font-size: 0.875rem;
 }
 
 .checkbox-group {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
+  /* Text on the left, checkbox on the right; text can wrap without overlap */
+  display: grid;
+  grid-template-columns: 1fr 20px; /* label grows, checkbox stays fixed */
+  column-gap: 0.75rem;
   margin-top: 0.5rem;
-  align-items: center;
+  align-items: start;
   padding: 0.5rem 0;
   border-bottom: 1px solid #f0f0f0;
-  position: relative;
 }
 
 .checkbox-group:last-child {
@@ -106,21 +110,39 @@
   font-size: 1rem;
   color: #000000;
   font-weight: normal;
-  text-align: center;
-  padding-left: 2rem;
+  text-align: left;
+  padding-left: 0; /* grid provides spacing */
+  grid-column: 1; /* ensure label stays in the left column */
 }
 
 .checkbox {
   width: 16px;
   height: 16px;
   cursor: pointer;
+  color: #ffffff; /* ensure checkbox background is white */
+  border: 1px solid #e0e0e0;
+  /* Use accent-color so modern browsers render the check/filled color with the brand gold */
+  accent-color: #D4AF37;
 }
 
 .checkbox-group .checkbox {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  /* Place checkbox in the right column; align to top/right */
+  grid-column: 2;
+  align-self: start;
+  justify-self: end;
+}
+
+/* Explicitly target native checkbox/radio inputs within the newsletter form to ensure white background */
+.newsletter-form input[type="checkbox"],
+.newsletter-form input[type="radio"] {
+  background-color: #ffffff;
+  accent-color: #D4AF37;
+  border: 1px solid #e0e0e0;
+}
+
+/* Ensure unchecked checkbox uses light (white) control theme without affecting other elements */
+.newsletter-form input[type="checkbox"] {
+  color-scheme: light;
 }
 
 .terms-label {
@@ -152,6 +174,7 @@
 .form-group textarea {
   padding: 0.75rem;
   border: 1px solid #e0e0e0;
+  background-color: #ffffff;
   border-radius: 4px;
   font-size: 1rem;
   box-sizing: border-box;
@@ -218,6 +241,15 @@
   color: #721c24;
   border: 1px solid #f5c6cb;
 }
+
+/* Inline contact link under the form */
+.contact-inline {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* Use default link colors; no override necessary since global a styles apply */
 
 @media (max-width: 768px) {
   .newsletter-content-wrapper {

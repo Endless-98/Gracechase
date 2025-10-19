@@ -38,11 +38,39 @@ a:hover {
   text-decoration: underline;
 }
 
+:root {
+  /* Defaults used on main page */
+  --site-bg: #ffffff;
+  --header-overlay: rgba(0, 0, 0, 0.7);
+}
+
+/* When on any route other than '/', apply subpage overrides */
+html.subpage {
+  /* Override only what you want different on subpages */
+  --site-bg: #555555; /* dark gray background for specified subpages */
+}
+
 #root {
   margin: 0;
   padding: 0;
   border: 0;
   width: 100%;
+  background-color: var(--site-bg);
+}
+
+/* Ensure form controls use a white background site-wide for readability */
+input, select, textarea {
+  background-color: #ffffff;
+  color: #000000; /* ensure text typed into inputs is black */
+}
+
+/* Make checkboxes and radios visually match the form controls: white background and brand accent */
+input[type="checkbox"],
+input[type="radio"] {
+  background-color: #ffffff;
+  /* accent-color controls the check/filled color in modern browsers */
+  accent-color: #D4AF37;
+  border: 1px solid #e0e0e0;
 }
 
 .main-page {
@@ -50,14 +78,16 @@ a:hover {
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  background-color: #ffffff;
+  background-color: var(--site-bg);
 }
 
 .header {
   top: 0;
   width: 100%;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black for overlay on hero */
+  /* Overlay color for the header/hero (change this to adjust the dark background behind content) */
+  /* Examples: rgba(0,0,0,0.5)  or  rgba(41,22,5,0.6) (warm dark brown) */
+  background-color: var(--header-overlay); /* Semi-transparent overlay on hero */
   display: grid;
   align-items: center;
   align-content: center;

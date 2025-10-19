@@ -1,7 +1,12 @@
+#root{
+    background-color: #555555;
+}
+
 .contact-page {
   max-width: 750px;
   margin: 0 auto;
   padding: 2rem;
+  /* Background color for the Contact page. Change this hex to adjust the page grey. */
   background-color: #ffffff;
   min-height: 100vh;
   position: relative;

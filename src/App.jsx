@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import AlbumItem from './components/AlbumItem.jsx';
 import Blog from './components/Blog.jsx';
 import BlogPost from './components/BlogPost.jsx';
@@ -10,6 +10,18 @@ import Unsubscribe from './components/Unsubscribe.jsx';
 import './App.css';
 
 function App() {
+  const location = useLocation();
+  // Toggle a class on <html> only for specific subpages where we want a dark root background
+  useEffect(() => {
+    const htmlEl = document.documentElement;
+    const darkRoutes = ['/contact', '/privacy', '/newsletter'];
+    const isDarkSubpage = darkRoutes.includes(location.pathname);
+    if (isDarkSubpage) {
+      htmlEl.classList.add('subpage');
+    } else {
+      htmlEl.classList.remove('subpage');
+    }
+  }, [location.pathname]);
   // Sample album data (replace with API data in a real MERN app)
   const albums = [
     {
@@ -65,7 +77,6 @@ function App() {
               }}>Releases</Link></p>
               <p><Link to="/newsletter" className="nav-link">Stay in touch</Link></p>
               {/* <p><Link to="/blog" className="nav-link">Blog</Link></p> */}
-              <p><Link to="/contact" className="nav-link">Contact</Link></p>
             </nav>
           </div>
 
@@ -128,7 +139,13 @@ function App() {
 
           <section className='footer'>
             <div className='footer-content'>
-              <p>&copy; 2025 Gracechase. All rights reserved. | <Link to="/privacy">Privacy Policy</Link></p>
+              <p>&copy; 2025 Gracechase. All rights reserved. |
+                {' '}
+                <Link to="/privacy">Privacy Policy</Link>
+                {' '}|
+                {' '}
+                <Link to="/contact">Contact</Link>
+              </p>
             </div>
           </section>
         </div>
