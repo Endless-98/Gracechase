@@ -46,7 +46,7 @@ const AlbumItem = ({ spotifyLink, youtubeMusicLink, youtubeLink, appleMusicLink,
           )}
           {amazonMusicLink && (
             <a href={amazonMusicLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Amazon Music" onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'amazon_music' })}>
-              <img src="/images/album-covers/AmazonMusicLogo.png" alt="Amazon Music" width="24" height="24" />
+              <img src="images/album-covers/AmazonMusicLogo.png" alt="Amazon Music" width="24" height="24" />
             </a>
           )}
         </div>
