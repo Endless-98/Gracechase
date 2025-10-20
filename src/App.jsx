@@ -27,16 +27,20 @@ function App() {
     {
       id: 1,
       spotifyEmbedIframe: '<iframe data-testid="embed-iframe" className="spotify-embed" style={{borderRadius: "12px"}} src={`https://open.spotify.com/embed/album/${albumId}?utm_source=generator`} width="100%" height="352" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
-      spotifyLink: 'https://open.spotify.com/album/0eRcQ32hkwgvSvfPPPOOhu?si=3fLeoWN0TFWaIPjgsn0PKg',
+      spotifyLink: 'https://open.spotify.com/album/0eRcQ32hkwgvSvfPPPOOhu',
+      amazonMusicLink: 'https://music.amazon.com/albums/B0FRYSGZ4C',
+      youtubeLink: 'https://www.youtube.com/watch?v=EDaC7_Ek8eM&list=OLAK5uy_lUIwPFRjiX3R6qIWC3VFwBNw4LLNCupHc',
       appleMusicLink: 'https://music.apple.com/us/album/your-majesty/1841459632',
-      youtubeMusicLink: 'https://music.youtube.com/playlist?list=OLAK5uy_kVbhrim-szUB-OAs0nCayOWOijpXukKCA&si=WFnipm4d5J3fED_X',
+      youtubeMusicLink: 'https://music.youtube.com/playlist?list=OLAK5uy_kVbhrim-szUB-OAs0nCayOWOijpXukKCA',
     },
     {
       id: 2,
       spotifyEmbedIframe: '<iframe data-testid="embed-iframe" className="spotify-embed" style={{borderRadius: "12px"}} src={`https://open.spotify.com/embed/album/5Tt1sGIoAnpzRHY3abDqz4?utm_source=generator`} width="100%" height="352" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
-      spotifyLink: 'https://open.spotify.com/album/5Tt1sGIoAnpzRHY3abDqz4?si=3fLeoWN0TFWaIPjgsn0PKg',
+      spotifyLink: 'https://open.spotify.com/album/5Tt1sGIoAnpzRHY3abDqz4',
+      amazonMusicLink: 'https://music.amazon.com/albums/B0FNLZ7CJ4',
+      youtubeLink: 'https://youtu.be/QoaeKUHDJM8',
       appleMusicLink: 'https://music.apple.com/us/album/im-still-your-love-single/1835662171',
-      youtubeMusicLink: 'https://music.youtube.com/watch?v=QoaeKUHDJM8&si=IEWUMM8N6seCrzPe',
+      youtubeMusicLink: 'https://music.youtube.com/watch?v=QoaeKUHDJM8',
     },
   ];
 
@@ -100,7 +104,9 @@ function App() {
                     key={album.id}
                     spotifyLink={album.spotifyLink}
                     youtubeMusicLink={album.youtubeMusicLink}
+                    youtubeLink={album.youtubeLink}
                     appleMusicLink={album.appleMusicLink}
+                    amazonMusicLink={album.amazonMusicLink}
                   />
                 ))}
               </div>
