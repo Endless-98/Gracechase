@@ -14,32 +14,20 @@ This is a single-page website featuring a home page with album displays and a bl
 1. Clone the repository
 2. Copy `.env.example` to `.env`
 3. Fill in the environment variables:
-   - `VITE_BACKEND_BASE_URL` (e.g., http://localhost:5000 for local dev)
-   - `VITE_TURNSTILE_SITEKEY` (from Cloudflare Turnstile; optional for dev)
    - `VITE_GA_MEASUREMENT_ID` (optional)
-4. Backend setup: see `backend/README.md` for AWS/SES/DynamoDB/Turnstile envs. Quick start:
-   - `cd backend && cp .env.example .env && npm install && npm start`
-5. Install frontend deps at repo root: `npm install`
-6. Start development server: `npm run dev`
+   - Other optional URLs as needed by features (see `.env`)
+4. Install frontend deps at repo root: `npm install`
+5. Start development server: `npm run dev`
 
 ### Environment Variables (frontend)
 
-- `VITE_BACKEND_BASE_URL`: Your backend base URL (http://localhost:5000 in dev)
-- `VITE_TURNSTILE_SITEKEY`: Cloudflare Turnstile site key (public; optional in dev)
-- `VITE_SEND_CONFIRM_EMAIL`: Feature flag to enable confirmation emails (default false)
 - `VITE_GA_MEASUREMENT_ID`: Google Analytics 4 Measurement ID (optional)
+- `VITE_NEWSLETTER_CONFIRM_URL`: Newsletter confirm Lambda URL (optional)
+- `VITE_TTL_INACTIVE_DAYS`: Retention window hint for client features (optional)
 
-### Backend Setup (SES + Newsletter)
+### Architecture
 
-See `backend/README.md` for full instructions. Summary:
-
-1. SES: Verify `FROM_EMAIL` and set AWS creds.
-2. DynamoDB: Use your existing table (with `id` PK and `ttl` TTL attribute enabled). Set `NEWSLETTER_TABLE` in backend `.env`.
-3. Turnstile: Create a site in Cloudflare. Put site key in frontend `.env` and secret in `backend/.env`.
-4. CORS: Ensure `ALLOWED_ORIGINS` (backend) includes your frontend origins.
-5. Run backend: `cd backend && npm start`.
-
-**Note**: AWS SES has a free tier (62,000 emails/month for first 12 months), then pay per email.
+This site runs fully in the browser and talks directly to AWS services (Amplify/AppSync, Lambda URLs). No separate backend server is required for development or GitHub Pages.
 
 ## Features
 

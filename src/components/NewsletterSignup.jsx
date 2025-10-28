@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { generateClient } from 'aws-amplify/api';
 import amplifyOutputs from '../../amplify_outputs/amplify_outputs.json';
 import './NewsletterSignup.css';
 
@@ -11,15 +12,14 @@ const NewsletterSignup = () => {
     interests: [],
     acceptTerms: false
   });
-  // Simple bot honeypot: real users won't fill this hidden field
-  const [botField, setBotField] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState(null); // 'success', 'error'
-  const [turnstileToken, setTurnstileToken] = useState('');
-  const widgetRef = useRef(null);
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((formData.email || '').trim());
-  // Detect if current API schema has a ttl field for NewsletterSignup
-  const supportsTTL = !!(amplifyOutputs?.data?.model_introspection?.models?.NewsletterSignup?.fields?.ttl);
+  const client = generateClient();
+  // Determine if the deployed GraphQL API supports the numeric ttl field
+  const supportsTTL = !!(
+    amplifyOutputs?.data?.model_introspection?.models?.NewsletterSignup?.fields?.ttl
+  );
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -51,46 +51,49 @@ const NewsletterSignup = () => {
     setStatus(null);
 
     try {
-      // If honeypot is filled, silently succeed to deter simple bots (in addition to Turnstile)
-      if (botField && botField.trim().length > 0) {
-        setStatus('success');
-        setFormData({ email: '', interests: [], acceptTerms: false });
-        setBotField('');
-        setTurnstileToken('');
-        return;
-      }
-
       const normalizedEmail = (formData.email || '').trim().toLowerCase();
-      const backendBase = import.meta.env.VITE_BACKEND_BASE_URL || '';
-      const url = `${backendBase}/api/newsletter-signup`;
-      const referrerPath = window.location.pathname;
-      const payload = {
-        email: normalizedEmail,
-        interests: formData.interests,
-        acceptTerms: formData.acceptTerms,
-        consentTextVersion: 'v1',
-        referrerPath,
-        turnstileToken,
-      };
-      const resp = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+      // Create NewsletterSignup directly via AppSync (public IAM auth)
+      const ttlDays = parseInt(import.meta.env.VITE_TTL_INACTIVE_DAYS || '425', 10);
+      const ttlSeconds = Math.floor(Date.now() / 1000) + (isNaN(ttlDays) ? 425 : ttlDays) * 24 * 60 * 60;
+      const mutation = supportsTTL
+        ? /* GraphQL */ `
+          mutation CreateNewsletterSignup($input: CreateNewsletterSignupInput!) {
+            createNewsletterSignup(input: $input) {
+              id
+              email
+              interests
+              createdAt
+              ttl
+            }
+          }
+        `
+        : /* GraphQL */ `
+          mutation CreateNewsletterSignup($input: CreateNewsletterSignupInput!) {
+            createNewsletterSignup(input: $input) {
+              id
+              email
+              interests
+              createdAt
+            }
+          }
+        `;
+      await client.graphql({
+        query: mutation,
+        variables: {
+          input: {
+            email: normalizedEmail,
+            interests: formData.interests,
+            ...(supportsTTL ? { ttl: ttlSeconds } : {}),
+          },
+        },
+        authMode: 'iam',
       });
-      if (!resp.ok) throw new Error('signup_failed');
-      const j = await resp.json();
-      if (!j?.ok) throw new Error('signup_failed');
       setStatus('success');
       setFormData({
         email: '',
         interests: [],
         acceptTerms: false
       });
-      setTurnstileToken('');
-      // reset widget if available
-      if (window.turnstile && widgetRef.current) {
-        try { window.turnstile.reset(widgetRef.current); } catch {}
-      }
 
       // Track newsletter signup conversion
       if (window.twq) {
@@ -109,30 +112,6 @@ const NewsletterSignup = () => {
       setIsSubmitting(false);
     }
   };
-
-  // Mount Turnstile widget (if site key provided)
-  useEffect(() => {
-    const siteKey = import.meta.env.VITE_TURNSTILE_SITEKEY;
-    if (!siteKey) return;
-    const ready = () => {
-      try {
-        const el = widgetRef.current;
-        if (!el || !window.turnstile) return;
-        window.turnstile.render(el, {
-          sitekey: siteKey,
-          callback: (token) => setTurnstileToken(token || ''),
-          'error-callback': () => setTurnstileToken(''),
-          'expired-callback': () => setTurnstileToken(''),
-          theme: 'auto',
-        });
-      } catch {}
-    };
-    if (window.turnstile && window.turnstile.render) ready();
-    else {
-      const t = setTimeout(ready, 500);
-      return () => clearTimeout(t);
-    }
-  }, []);
 
   return (
     <div className="newsletter-page">
@@ -159,19 +138,7 @@ const NewsletterSignup = () => {
               />
             </div>
 
-            {/* Honeypot field (hidden from users) */}
-            <div style={{ position: 'absolute', left: '-10000px', top: 'auto', width: '1px', height: '1px', overflow: 'hidden' }} aria-hidden="true">
-              <label htmlFor="company">Company</label>
-              <input
-                type="text"
-                id="company"
-                name="company"
-                tabIndex={-1}
-                autoComplete="off"
-                value={botField}
-                onChange={(e) => setBotField(e.target.value)}
-              />
-            </div>
+            {/* Bot honeypot removed per request */}
 
             <div className="form-group">
               <label>What interests you? <span className="optional">(select at least one)</span></label>
@@ -244,9 +211,7 @@ const NewsletterSignup = () => {
               Need help or have a question? <Link to="/contact">Contact us</Link>
             </p>
           </form>
-          {/* Email send is disabled for now; no user-facing dev/error details shown */}
-          {/* Turnstile widget container (renders if VITE_TURNSTILE_SITEKEY is set) */}
-          <div ref={widgetRef} className="cf-turnstile" />
+          {/* Turnstile removed per request */}
         </section>
       </div>
     </div>
