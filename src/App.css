@@ -173,11 +173,12 @@ input[type="radio"] {
 
 /* Coming soon cover: lock width to match release cards and keep centered */
 .coming-soon-card {
-  /* Allow the coming-soon cover to shrink more aggressively than the release cards.
-     This gives the cover permission to become vertically smaller than the Spotify embeds when space is tight. */
-  width: 375px;
-  /* allow shrinking (can become narrower than 375px) */
-  flex: 0 1 375px;
+  /* Allow the coming-soon cover to shrink width-wise; height follows via square wrapper. */
+  width: 100%;
+  max-width: 375px;
+  /* IMPORTANT: this item sits in a column flex container (.releases-grid),
+     so flex-basis applies vertically. Use content-based height so it can shrink. */
+  flex: 0 0 auto; /* no fixed vertical basis; size by content (the square inner) */
   align-self: center;
   margin: 0 auto; /* center horizontally */
 }
