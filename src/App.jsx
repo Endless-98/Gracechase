@@ -97,6 +97,17 @@ function App() {
           <section className="releases-section" id="releases">
             <h2>Releases</h2>
             <div className="releases-grid">
+              {/* Coming soon cover on its own row above current album embeds */}
+              <div className="coming-soon-card">
+                <div className="coming-soon-inner">
+                  <img
+                    src="images/album-covers/Even Better Christmas Cover Coming Soon 1000px.jpg"
+                    alt="Even Better Christmas — Coming Soon"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
               {/* Featured Album using AlbumItem */}
               <div className="featured-album">
                 {albums.map((album) => (
