@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { generateClient } from 'aws-amplify/api';
-import amplifyOutputs from '../../amplify_outputs/amplify_outputs.json';
 import './NewsletterSignup.css';
 
 const NewsletterSignup = () => {
@@ -16,10 +15,6 @@ const NewsletterSignup = () => {
   const [status, setStatus] = useState(null); // 'success', 'error'
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((formData.email || '').trim());
   const client = generateClient();
-  // Determine if the deployed GraphQL API supports the numeric ttl field
-  const supportsTTL = !!(
-    amplifyOutputs?.data?.model_introspection?.models?.NewsletterSignup?.fields?.ttl
-  );
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -55,35 +50,24 @@ const NewsletterSignup = () => {
       // Create NewsletterSignup directly via AppSync (public IAM auth)
       const ttlDays = parseInt(import.meta.env.VITE_TTL_INACTIVE_DAYS || '425', 10);
       const ttlSeconds = Math.floor(Date.now() / 1000) + (isNaN(ttlDays) ? 425 : ttlDays) * 24 * 60 * 60;
-      const mutation = supportsTTL
-        ? /* GraphQL */ `
-          mutation CreateNewsletterSignup($input: CreateNewsletterSignupInput!) {
-            createNewsletterSignup(input: $input) {
-              id
-              email
-              interests
-              createdAt
-              ttl
-            }
+      const mutation = /* GraphQL */ `
+        mutation CreateNewsletterSignup($input: CreateNewsletterSignupInput!) {
+          createNewsletterSignup(input: $input) {
+            id
+            email
+            interests
+            createdAt
           }
-        `
-        : /* GraphQL */ `
-          mutation CreateNewsletterSignup($input: CreateNewsletterSignupInput!) {
-            createNewsletterSignup(input: $input) {
-              id
-              email
-              interests
-              createdAt
-            }
-          }
-        `;
+        }
+      `;
+      // Always include ttl; if the API doesn't accept it, we surface an error (policy requires ttl)
       await client.graphql({
         query: mutation,
         variables: {
           input: {
             email: normalizedEmail,
             interests: formData.interests,
-            ...(supportsTTL ? { ttl: ttlSeconds } : {}),
+            ttl: ttlSeconds,
           },
         },
         authMode: 'iam',
