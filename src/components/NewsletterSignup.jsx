@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import amplifyOutputs from '../../amplify_outputs/amplify_outputs.json';
 import './NewsletterSignup.css';
 
 const NewsletterSignup = () => {
@@ -10,11 +11,15 @@ const NewsletterSignup = () => {
     interests: [],
     acceptTerms: false
   });
+  // Simple bot honeypot: real users won't fill this hidden field
+  const [botField, setBotField] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState(null); // 'success', 'error'
   const [turnstileToken, setTurnstileToken] = useState('');
   const widgetRef = useRef(null);
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((formData.email || '').trim());
+  // Detect if current API schema has a ttl field for NewsletterSignup
+  const supportsTTL = !!(amplifyOutputs?.data?.model_introspection?.models?.NewsletterSignup?.fields?.ttl);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -46,6 +51,15 @@ const NewsletterSignup = () => {
     setStatus(null);
 
     try {
+      // If honeypot is filled, silently succeed to deter simple bots (in addition to Turnstile)
+      if (botField && botField.trim().length > 0) {
+        setStatus('success');
+        setFormData({ email: '', interests: [], acceptTerms: false });
+        setBotField('');
+        setTurnstileToken('');
+        return;
+      }
+
       const normalizedEmail = (formData.email || '').trim().toLowerCase();
       const backendBase = import.meta.env.VITE_BACKEND_BASE_URL || '';
       const url = `${backendBase}/api/newsletter-signup`;
@@ -142,6 +156,20 @@ const NewsletterSignup = () => {
                 onChange={handleChange}
                 placeholder="your.email@example.com"
                 required
+              />
+            </div>
+
+            {/* Honeypot field (hidden from users) */}
+            <div style={{ position: 'absolute', left: '-10000px', top: 'auto', width: '1px', height: '1px', overflow: 'hidden' }} aria-hidden="true">
+              <label htmlFor="company">Company</label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                tabIndex={-1}
+                autoComplete="off"
+                value={botField}
+                onChange={(e) => setBotField(e.target.value)}
               />
             </div>
 

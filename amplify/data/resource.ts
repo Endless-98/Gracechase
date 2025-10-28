@@ -19,9 +19,11 @@ const schema = a.schema({
       // deletion metadata: timestamp when user requested deletion and TTL epoch seconds
       // optional string fields; values will be stored as ISO timestamps or epoch seconds
       deletedAt: a.string(),
-      ttl: a.string(),
+      // DynamoDB native TTL requires a Number attribute with epoch seconds
+      ttl: a.integer().required(),
     })
-    .authorization((allow) => [allow.guest()]),
+    // Simplest safe posture: guests can only create. No read, update, or delete.
+    .authorization((allow) => [allow.guest().to(['create'])]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
