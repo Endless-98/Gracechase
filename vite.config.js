@@ -9,4 +9,13 @@ export default defineConfig({
     assetsInlineLimit: 0, // Ensure large images aren’t inlined
   },
   base: process.env.VITE_GITHUB_PAGES ? '/Gracechase/' : '/',
+  server: {
+    proxy: {
+      // Proxy API calls to local backend during dev to avoid 404s from Vite
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+      },
+    },
+  },
 });
