@@ -157,15 +157,58 @@ input[type="radio"] {
 .releases-grid {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  /* Keep a constant, comfortable vertical gap between rows */
+  gap: 28px;
 }
 
 .featured-album {
   display: flex;
   flex-direction: row;
-  gap: 3rem;
+  /* Bring the two release cards closer together */
+  gap: 1rem; /* 16px */
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center; /* center items vertically/horizontally across wraps */
+}
+
+/* Coming soon cover: lock width to match release cards and keep centered */
+.coming-soon-card {
+  /* Allow the coming-soon cover to shrink width-wise; height follows via square wrapper. */
+  width: 100%;
+  max-width: 375px;
+  /* IMPORTANT: this item sits in a column flex container (.releases-grid),
+     so flex-basis applies vertically. Use content-based height so it can shrink. */
+  flex: 0 0 auto; /* no fixed vertical basis; size by content (the square inner) */
+  align-self: center;
+  margin: 0 auto; /* center horizontally */
+}
+
+/* Ensure the coming-soon image stays square (height matches width) */
+.coming-soon-card .spotify-embed {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto; /* height derives from aspect-ratio */
+  object-fit: cover; /* fill square nicely if source isn't exactly square */
+  display: block;
+}
+
+/* Robust square wrapper for browsers that may not honor aspect-ratio on <img> */
+.coming-soon-inner {
+  position: relative;
+  width: 100%;
+  /* padding-top creates a square box (height = width) */
+  padding-top: 100%;
+  overflow: hidden;
+}
+.coming-soon-inner img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
 }
 
 .about-section {
@@ -320,5 +363,6 @@ li, p, h1, h2, h3, h4, h5, h6 {
   }
   .featured-album {
     flex-direction: column;
+    align-items: center; /* keep single column items centered */
   }
 }

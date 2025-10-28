@@ -67,11 +67,20 @@ p {
 }
 .album-container {
   display: flex;
-  flex: 1;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 375px; /* Limit max width to prevent excessive stretching */
+  /* Keep cards a consistent width so they don't get thinner */
+  width: 375px;
+  flex: 0 0 375px; /* do not grow or shrink; fixed basis 375px */
+  max-width: 100%;
+  /* Center the card within the row/column layout */
+  align-self: center;
+}
+
+/* When inside the releases row, avoid auto margins pushing cards apart; rely on gap + centering */
+.featured-album .album-container {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .spotify-embed {
