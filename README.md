@@ -13,32 +13,21 @@ This is a single-page website featuring a home page with album displays and a bl
 
 1. Clone the repository
 2. Copy `.env.example` to `.env`
-3. Fill in your Google Analytics 4 Measurement ID in `.env`
-4. Set up EmailJS (see below) and add the credentials to `.env`
-5. Install dependencies: `npm install`
-6. Start development server: `npm run dev`
+3. Fill in the environment variables:
+   - `VITE_GA_MEASUREMENT_ID` (optional)
+   - Other optional URLs as needed by features (see `.env`)
+4. Install frontend deps at repo root: `npm install`
+5. Start development server: `npm run dev`
 
-### Environment Variables
+### Environment Variables (frontend)
 
-- `VITE_GA_MEASUREMENT_ID`: Your Google Analytics 4 Measurement ID (required for analytics)
-- `VITE_API_URL`: API URL for development (optional)
+- `VITE_GA_MEASUREMENT_ID`: Google Analytics 4 Measurement ID (optional)
+- `VITE_NEWSLETTER_CONFIRM_URL`: Newsletter confirm Lambda URL (optional)
+- `VITE_TTL_INACTIVE_DAYS`: Retention window hint for client features (optional)
 
-### AWS SES Setup (For Email)
+### Architecture
 
-1. Sign up for AWS account and go to SES console
-2. Verify your sender email address (`FROM_EMAIL`)
-3. Create IAM user with SES permissions or use access keys
-4. Add these to `backend/.env`:
-   ```
-   AWS_REGION=us-east-1
-   AWS_ACCESS_KEY_ID=your_access_key
-   AWS_SECRET_ACCESS_KEY=your_secret_key
-   FROM_EMAIL=your-verified-email@example.com
-   TO_EMAIL=contact.gracechase@gmail.com
-   ```
-5. Run the backend: `cd backend && npm install && npm start`
-
-**Note**: AWS SES has a free tier (62,000 emails/month for first 12 months), then pay per email.
+This site runs fully in the browser and talks directly to AWS services (Amplify/AppSync, Lambda URLs). No separate backend server is required for development or GitHub Pages.
 
 ## Features
 

@@ -8,29 +8,26 @@ const Unsubscribe = () => {
   const [status, setStatus] = useState(null); // 'success' | 'not-found' | 'error'
   const [searchParams] = useSearchParams();
 
-  // Helper: unsubscribe all records matching this email
+  // Simplest approach without public DB permissions:
+  // Send an unsubscribe request to our email handler Lambda, and we'll process removal server-side.
   const unsubscribeByEmail = async (targetEmail) => {
-    const { generateClient } = await import('aws-amplify/data');
-    const client = generateClient();
-    const normalized = (targetEmail || '').trim().toLowerCase();
-    const { data: records } = await client.models.NewsletterSignup.list({
-      filter: { email: { eq: normalized } },
-    });
-
-    if (!records || records.length === 0) {
-      return 'not-found';
-    }
-  // Mark deletion timestamp; scheduled cleaner (and/or TTL if set server-side) will remove leftovers
-  const now = Date.now();
-  await Promise.all(records.map((rec) => client.models.NewsletterSignup.update({ id: rec.id, deletedAt: String(now) })));
-    // Attempt immediate deletes; if they fail the scheduled cleaner will remove these within 24 hours
+    const endpoint = 'https://eykveoan7cjc745m7twnh2hof40raaok.lambda-url.us-east-1.on.aws/';
     try {
-      await Promise.all(records.map((rec) => client.models.NewsletterSignup.delete({ id: rec.id })));
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: 'Unsubscribe Request',
+          email: (targetEmail || '').trim().toLowerCase(),
+          message: 'Please unsubscribe this address from the Gracechase newsletter and remove any associated records.'
+        })
+      });
+      if (!res.ok) throw new Error('Unsubscribe email failed');
+      return 'success';
     } catch (e) {
-      // ignore: fallback cleaner will pick up marked records
-      console.warn('Immediate delete failed; marked records will expire via cleaner', e);
+      console.error('Unsubscribe request failed:', e);
+      return 'error';
     }
-    return 'success';
   };
 
   const handleSubmit = async (e) => {
@@ -112,11 +109,7 @@ const Unsubscribe = () => {
               ✅ You’ve been unsubscribed. If you change your mind, you can resubscribe anytime.
             </div>
           )}
-          {status === 'not-found' && (
-            <div className="status-message warning">
-              We didn’t find that email in our list. Please check the address or try another.
-            </div>
-          )}
+          {/* No direct DB check; requests are emailed for processing */}
           {status === 'error' && (
             <div className="status-message error">
               ❌ Something went wrong. Please try again later or contact us.

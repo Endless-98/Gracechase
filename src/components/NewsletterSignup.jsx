@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { generateClient } from 'aws-amplify/api';
+import amplifyOutputs from '../../amplify_outputs/amplify_outputs.json';
 import './NewsletterSignup.css';
 
 const NewsletterSignup = () => {
@@ -13,6 +15,11 @@ const NewsletterSignup = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState(null); // 'success', 'error'
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((formData.email || '').trim());
+  const client = generateClient();
+  // Determine if the deployed GraphQL API supports the numeric ttl field
+  const supportsTTL = !!(
+    amplifyOutputs?.data?.model_introspection?.models?.NewsletterSignup?.fields?.ttl
+  );
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -44,43 +51,43 @@ const NewsletterSignup = () => {
     setStatus(null);
 
     try {
-      const { generateClient } = await import('aws-amplify/data');
-      const client = generateClient();
-
-      // Normalize email to lowercase for consistent lookups
       const normalizedEmail = (formData.email || '').trim().toLowerCase();
-
-  // Upsert behavior: if email exists, update interests; otherwise create
-  if (import.meta.env.DEV) console.log('Checking for existing signup by email...');
-      const { data: existingList } = await client.models.NewsletterSignup.list({
-        filter: { email: { eq: normalizedEmail } },
-        limit: 1,
+      // Create NewsletterSignup directly via AppSync (public IAM auth)
+      const ttlDays = parseInt(import.meta.env.VITE_TTL_INACTIVE_DAYS || '425', 10);
+      const ttlSeconds = Math.floor(Date.now() / 1000) + (isNaN(ttlDays) ? 425 : ttlDays) * 24 * 60 * 60;
+      const mutation = supportsTTL
+        ? /* GraphQL */ `
+          mutation CreateNewsletterSignup($input: CreateNewsletterSignupInput!) {
+            createNewsletterSignup(input: $input) {
+              id
+              email
+              interests
+              createdAt
+              ttl
+            }
+          }
+        `
+        : /* GraphQL */ `
+          mutation CreateNewsletterSignup($input: CreateNewsletterSignupInput!) {
+            createNewsletterSignup(input: $input) {
+              id
+              email
+              interests
+              createdAt
+            }
+          }
+        `;
+      await client.graphql({
+        query: mutation,
+        variables: {
+          input: {
+            email: normalizedEmail,
+            interests: formData.interests,
+            ...(supportsTTL ? { ttl: ttlSeconds } : {}),
+          },
+        },
+        authMode: 'iam',
       });
-      let dbResult;
-      if (existingList && existingList.length > 0) {
-        const existing = existingList[0];
-  if (import.meta.env.DEV) console.log('Existing signup found. Updating interests for id:', existing.id);
-        dbResult = await client.models.NewsletterSignup.update({
-          id: existing.id,
-          interests: formData.interests,
-        });
-      } else {
-  if (import.meta.env.DEV) console.log('No existing signup found. Creating new entry...');
-        dbResult = await client.models.NewsletterSignup.create({
-          email: normalizedEmail,
-          interests: formData.interests,
-        });
-      }
-  if (import.meta.env.DEV) console.log('NewsletterSignup upsert result:', dbResult);
-      // For now: skip confirmation email; treat DB create as success and clear form
-      // When ready, set VITE_SEND_CONFIRM_EMAIL=true and provide VITE_NEWSLETTER_CONFIRM_URL to enable sending.
-      if (shouldSendConfirmation) {
-        const confirmUrl = import.meta.env.VITE_NEWSLETTER_CONFIRM_URL;
-        if (confirmUrl) {
-          // Intentionally disabled in this environment; leaving structure for future re-enable.
-          // await fetch(confirmUrl, { ... })
-        }
-      }
       setStatus('success');
       setFormData({
         email: '',
@@ -130,6 +137,8 @@ const NewsletterSignup = () => {
                 required
               />
             </div>
+
+            {/* Bot honeypot removed per request */}
 
             <div className="form-group">
               <label>What interests you? <span className="optional">(select at least one)</span></label>
@@ -202,7 +211,7 @@ const NewsletterSignup = () => {
               Need help or have a question? <Link to="/contact">Contact us</Link>
             </p>
           </form>
-          {/* Email send is disabled for now; no user-facing dev/error details shown */}
+          {/* Turnstile removed per request */}
         </section>
       </div>
     </div>

@@ -5,7 +5,8 @@ const REGION = process.env.AWS_REGION || 'us-east-1';
 const TABLE = process.env.NEWSLETTER_TABLE;
 const SECRET = process.env.REDIRECT_TOKEN_SECRET;
 const ALLOWED = (process.env.ALLOWED_REDIRECT_HOSTS || '').split(',').map(h => h.trim()).filter(Boolean);
-const TTL_DAYS = parseInt(process.env.TTL_EXTENSION_DAYS || '30', 10);
+// When a user engages (clicks), extend retention to ~14 months by default
+const TTL_DAYS = parseInt(process.env.TTL_EXTENSION_DAYS || '425', 10);
 
 const ddb = new DynamoDBClient({ region: REGION });
 
