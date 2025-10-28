@@ -13,30 +13,31 @@ This is a single-page website featuring a home page with album displays and a bl
 
 1. Clone the repository
 2. Copy `.env.example` to `.env`
-3. Fill in your Google Analytics 4 Measurement ID in `.env`
-4. Set up EmailJS (see below) and add the credentials to `.env`
-5. Install dependencies: `npm install`
+3. Fill in the environment variables:
+   - `VITE_BACKEND_BASE_URL` (e.g., http://localhost:5000 for local dev)
+   - `VITE_TURNSTILE_SITEKEY` (from Cloudflare Turnstile; optional for dev)
+   - `VITE_GA_MEASUREMENT_ID` (optional)
+4. Backend setup: see `backend/README.md` for AWS/SES/DynamoDB/Turnstile envs. Quick start:
+   - `cd backend && cp .env.example .env && npm install && npm start`
+5. Install frontend deps at repo root: `npm install`
 6. Start development server: `npm run dev`
 
-### Environment Variables
+### Environment Variables (frontend)
 
-- `VITE_GA_MEASUREMENT_ID`: Your Google Analytics 4 Measurement ID (required for analytics)
-- `VITE_API_URL`: API URL for development (optional)
+- `VITE_BACKEND_BASE_URL`: Your backend base URL (http://localhost:5000 in dev)
+- `VITE_TURNSTILE_SITEKEY`: Cloudflare Turnstile site key (public; optional in dev)
+- `VITE_SEND_CONFIRM_EMAIL`: Feature flag to enable confirmation emails (default false)
+- `VITE_GA_MEASUREMENT_ID`: Google Analytics 4 Measurement ID (optional)
 
-### AWS SES Setup (For Email)
+### Backend Setup (SES + Newsletter)
 
-1. Sign up for AWS account and go to SES console
-2. Verify your sender email address (`FROM_EMAIL`)
-3. Create IAM user with SES permissions or use access keys
-4. Add these to `backend/.env`:
-   ```
-   AWS_REGION=us-east-1
-   AWS_ACCESS_KEY_ID=your_access_key
-   AWS_SECRET_ACCESS_KEY=your_secret_key
-   FROM_EMAIL=your-verified-email@example.com
-   TO_EMAIL=contact.gracechase@gmail.com
-   ```
-5. Run the backend: `cd backend && npm install && npm start`
+See `backend/README.md` for full instructions. Summary:
+
+1. SES: Verify `FROM_EMAIL` and set AWS creds.
+2. DynamoDB: Use your existing table (with `id` PK and `ttl` TTL attribute enabled). Set `NEWSLETTER_TABLE` in backend `.env`.
+3. Turnstile: Create a site in Cloudflare. Put site key in frontend `.env` and secret in `backend/.env`.
+4. CORS: Ensure `ALLOWED_ORIGINS` (backend) includes your frontend origins.
+5. Run backend: `cd backend && npm start`.
 
 **Note**: AWS SES has a free tier (62,000 emails/month for first 12 months), then pay per email.
 

@@ -15,7 +15,7 @@ Note: TTL attribute must be a Number (epoch seconds). Our redirect Lambda writes
   - `NEWSLETTER_TABLE`: DynamoDB table name for NewsletterSignup
   - `REDIRECT_TOKEN_SECRET`: strong shared secret
   - `ALLOWED_REDIRECT_HOSTS`: e.g., `www.gracechase.com,gracechase.com,open.spotify.com`
-  - `TTL_EXTENSION_DAYS`: e.g., `30`
+  - `TTL_EXTENSION_DAYS`: e.g., `425` (≈14 months)
 - Expose: Create Function URL (or API Gateway), map `/r` on your domain to it (via CloudFront/ALB).
 
 ## 3) Generate signed tokens for email links

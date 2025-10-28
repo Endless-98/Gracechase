@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './NewsletterSignup.css';
 
@@ -12,6 +12,8 @@ const NewsletterSignup = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState(null); // 'success', 'error'
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const widgetRef = useRef(null);
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((formData.email || '').trim());
 
   const handleChange = (e) => {
@@ -44,49 +46,37 @@ const NewsletterSignup = () => {
     setStatus(null);
 
     try {
-      const { generateClient } = await import('aws-amplify/data');
-      const client = generateClient();
-
-      // Normalize email to lowercase for consistent lookups
       const normalizedEmail = (formData.email || '').trim().toLowerCase();
-
-  // Upsert behavior: if email exists, update interests; otherwise create
-  if (import.meta.env.DEV) console.log('Checking for existing signup by email...');
-      const { data: existingList } = await client.models.NewsletterSignup.list({
-        filter: { email: { eq: normalizedEmail } },
-        limit: 1,
+      const backendBase = import.meta.env.VITE_BACKEND_BASE_URL || '';
+      const url = `${backendBase}/api/newsletter-signup`;
+      const referrerPath = window.location.pathname;
+      const payload = {
+        email: normalizedEmail,
+        interests: formData.interests,
+        acceptTerms: formData.acceptTerms,
+        consentTextVersion: 'v1',
+        referrerPath,
+        turnstileToken,
+      };
+      const resp = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
       });
-      let dbResult;
-      if (existingList && existingList.length > 0) {
-        const existing = existingList[0];
-  if (import.meta.env.DEV) console.log('Existing signup found. Updating interests for id:', existing.id);
-        dbResult = await client.models.NewsletterSignup.update({
-          id: existing.id,
-          interests: formData.interests,
-        });
-      } else {
-  if (import.meta.env.DEV) console.log('No existing signup found. Creating new entry...');
-        dbResult = await client.models.NewsletterSignup.create({
-          email: normalizedEmail,
-          interests: formData.interests,
-        });
-      }
-  if (import.meta.env.DEV) console.log('NewsletterSignup upsert result:', dbResult);
-      // For now: skip confirmation email; treat DB create as success and clear form
-      // When ready, set VITE_SEND_CONFIRM_EMAIL=true and provide VITE_NEWSLETTER_CONFIRM_URL to enable sending.
-      if (shouldSendConfirmation) {
-        const confirmUrl = import.meta.env.VITE_NEWSLETTER_CONFIRM_URL;
-        if (confirmUrl) {
-          // Intentionally disabled in this environment; leaving structure for future re-enable.
-          // await fetch(confirmUrl, { ... })
-        }
-      }
+      if (!resp.ok) throw new Error('signup_failed');
+      const j = await resp.json();
+      if (!j?.ok) throw new Error('signup_failed');
       setStatus('success');
       setFormData({
         email: '',
         interests: [],
         acceptTerms: false
       });
+      setTurnstileToken('');
+      // reset widget if available
+      if (window.turnstile && widgetRef.current) {
+        try { window.turnstile.reset(widgetRef.current); } catch {}
+      }
 
       // Track newsletter signup conversion
       if (window.twq) {
@@ -105,6 +95,30 @@ const NewsletterSignup = () => {
       setIsSubmitting(false);
     }
   };
+
+  // Mount Turnstile widget (if site key provided)
+  useEffect(() => {
+    const siteKey = import.meta.env.VITE_TURNSTILE_SITEKEY;
+    if (!siteKey) return;
+    const ready = () => {
+      try {
+        const el = widgetRef.current;
+        if (!el || !window.turnstile) return;
+        window.turnstile.render(el, {
+          sitekey: siteKey,
+          callback: (token) => setTurnstileToken(token || ''),
+          'error-callback': () => setTurnstileToken(''),
+          'expired-callback': () => setTurnstileToken(''),
+          theme: 'auto',
+        });
+      } catch {}
+    };
+    if (window.turnstile && window.turnstile.render) ready();
+    else {
+      const t = setTimeout(ready, 500);
+      return () => clearTimeout(t);
+    }
+  }, []);
 
   return (
     <div className="newsletter-page">
@@ -203,6 +217,8 @@ const NewsletterSignup = () => {
             </p>
           </form>
           {/* Email send is disabled for now; no user-facing dev/error details shown */}
+          {/* Turnstile widget container (renders if VITE_TURNSTILE_SITEKEY is set) */}
+          <div ref={widgetRef} className="cf-turnstile" />
         </section>
       </div>
     </div>
