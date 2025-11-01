@@ -23,6 +23,15 @@ function App() {
     }
   }, [location.pathname]);
   // Sample album data (replace with API data in a real MERN app)
+  const newAlbum = {
+    id: 'new',
+    spotifyLink: 'https://open.spotify.com/album/0FDPRyIXg50LXOdgH8g65b',
+    amazonMusicLink: 'https://music.amazon.com/albums/B0FWZ9VRCF',
+    youtubeLink: 'https://www.youtube.com/watch?v=oDpwGMRPZ_Y&list=OLAK5uy_mpUIu03r9-i0mme53FErapRTm4Nhvi9RE',
+    appleMusicLink: 'https://music.apple.com/us/album/even-better-christmas/1847634777',
+    youtubeMusicLink: 'https://music.youtube.com/playlist?list=OLAK5uy_n_fdOT3WVxXeKfjr-h2arrYbk623z3VRU',
+  };
+
   const albums = [
     {
       id: 1,
@@ -97,16 +106,15 @@ function App() {
           <section className="releases-section" id="releases">
             <h2>Releases</h2>
             <div className="releases-grid">
-              {/* Coming soon cover on its own row above current album embeds */}
-              <div className="coming-soon-card">
-                <div className="coming-soon-inner">
-                  <img
-                    src="images/album-covers/Even Better Christmas Cover Coming Soon 1000px.jpg"
-                    alt="Even Better Christmas — Coming Soon"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
+              {/* New album positioned above the other albums */}
+              <AlbumItem
+                key={newAlbum.id}
+                spotifyLink={newAlbum.spotifyLink}
+                youtubeMusicLink={newAlbum.youtubeMusicLink}
+                youtubeLink={newAlbum.youtubeLink}
+                appleMusicLink={newAlbum.appleMusicLink}
+                amazonMusicLink={newAlbum.amazonMusicLink}
+              />
 
               {/* Featured Album using AlbumItem */}
               <div className="featured-album">
