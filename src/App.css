@@ -172,6 +172,57 @@ input[type="radio"] {
   align-items: center; /* center items vertically/horizontally across wraps */
 }
 
+/* Album card container and embed */
+.album-container {
+  width: 100%;
+  max-width: 375px; /* keep consistent with card width */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.album-container .spotify-embed {
+  width: 100%;
+  border-radius: 12px;
+  display: block; /* ensure the iframe takes full line width */
+}
+
+/* Streaming links: evenly fill the width under the embed, but cap icon size */
+.streaming-links {
+  display: grid;
+  width: 100%; /* span the exact width of the album card/iframe */
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); /* equal columns to edges */
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.streaming-links a {
+  width: 100%; /* fill grid cell */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Make icons responsive within sensible limits and override inline sizes */
+.streaming-links a svg,
+.streaming-links a img {
+  width: clamp(24px, 8vw, 36px) !important;
+  height: clamp(24px, 8vw, 36px) !important;
+}
+
+/* Subtle, tasteful emphasis on interaction */
+.streaming-links a svg,
+.streaming-links a img {
+  transition: transform 150ms ease, filter 150ms ease;
+}
+
+.streaming-links a:hover svg,
+.streaming-links a:hover img {
+  transform: translateY(-1px) scale(1.05);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
 /* Coming soon cover: lock width to match release cards and keep centered */
 .coming-soon-card {
   /* Allow the coming-soon cover to shrink width-wise; height follows via square wrapper. */
