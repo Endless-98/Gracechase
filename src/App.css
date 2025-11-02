@@ -207,8 +207,8 @@ input[type="radio"] {
 /* Make icons responsive within sensible limits and override inline sizes */
 .streaming-links a svg,
 .streaming-links a img {
-  width: clamp(24px, 8vw, 36px) !important;
-  height: clamp(24px, 8vw, 36px) !important;
+  width: clamp(30px, 11vw, 50px) !important;
+  height: clamp(30px, 11vw, 50px) !important;
 }
 
 /* Subtle, tasteful emphasis on interaction */
