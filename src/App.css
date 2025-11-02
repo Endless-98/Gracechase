@@ -193,7 +193,7 @@ input[type="radio"] {
   width: 100%; /* span the exact width of the album card/iframe */
   grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); /* equal columns to edges */
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   margin-top: 8px;
 }
 
@@ -207,8 +207,10 @@ input[type="radio"] {
 /* Make icons responsive within sensible limits and override inline sizes */
 .streaming-links a svg,
 .streaming-links a img {
-  width: clamp(30px, 11vw, 50px) !important;
-  height: clamp(30px, 11vw, 50px) !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 64px;
+  max-height: 64px;
 }
 
 /* Subtle, tasteful emphasis on interaction */
