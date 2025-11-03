@@ -189,16 +189,14 @@ input[type="radio"] {
 
 /* Streaming links: evenly fill the width under the embed, but cap icon size */
 .streaming-links {
-  display: grid;
-  width: 100%; /* span the exact width of the album card/iframe */
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); /* equal columns to edges */
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   margin-top: 8px;
 }
 
 .streaming-links a {
-  width: 100%; /* fill grid cell */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -207,10 +205,8 @@ input[type="radio"] {
 /* Make icons responsive within sensible limits and override inline sizes */
 .streaming-links a svg,
 .streaming-links a img {
-  width: 100% !important;
-  height: auto !important;
-  max-width: 64px;
-  max-height: 64px;
+  width: 64px !important;
+  height: 64px !important;
 }
 
 /* Subtle, tasteful emphasis on interaction */
