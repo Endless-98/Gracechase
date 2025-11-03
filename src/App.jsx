@@ -104,13 +104,15 @@ function App() {
             <h2>Releases</h2>
             <div className="releases-grid">
               {/* New album positioned above the other albums */}
-              <AlbumItem
-                key={newAlbum.id}
-                spotifyLink={newAlbum.spotifyLink}
-                youtubeMusicLink={newAlbum.youtubeMusicLink}
-                appleMusicLink={newAlbum.appleMusicLink}
-                amazonMusicLink={newAlbum.amazonMusicLink}
-              />
+              <div className="new-album-container">
+                <AlbumItem
+                  key={newAlbum.id}
+                  spotifyLink={newAlbum.spotifyLink}
+                  youtubeMusicLink={newAlbum.youtubeMusicLink}
+                  appleMusicLink={newAlbum.appleMusicLink}
+                  amazonMusicLink={newAlbum.amazonMusicLink}
+                />
+              </div>
 
               {/* Featured Album using AlbumItem */}
               <div className="featured-album">

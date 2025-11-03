@@ -162,6 +162,16 @@ input[type="radio"] {
   gap: 28px;
 }
 
+.new-album-container {
+  width: 100%;
+  max-width: 766px; /* 375px + 375px + 16px gap = 766px to match two albums side by side */
+  margin: 0 auto;
+}
+
+.new-album-container .album-container {
+  max-width: 100%; /* Allow it to fill the new-album-container */
+}
+
 .featured-album {
   display: flex;
   flex-direction: row;
@@ -403,7 +413,7 @@ li, p, h1, h2, h3, h4, h5, h6 {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 813px) {
   .releases-grid {
     grid-template-columns: 1fr;
   }
@@ -414,5 +424,8 @@ li, p, h1, h2, h3, h4, h5, h6 {
   .featured-album {
     flex-direction: column;
     align-items: center; /* keep single column items centered */
+  }
+  .new-album-container {
+    max-width: 375px; /* Match single album width when stacked vertically */
   }
 }
