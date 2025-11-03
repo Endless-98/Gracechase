@@ -17,22 +17,22 @@ const AlbumItem = ({ spotifyLink, youtubeMusicLink, appleMusicLink, amazonMusicL
         <div className="streaming-links">
           {spotifyLink && (
             <a href={spotifyLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Spotify" onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'spotify' })}>
-              <img src="/images/link-icons/spotify_logo.png" alt="Spotify" />
+              <img src="images/link-icons/spotify_logo.png" alt="Spotify" />
             </a>
           )}
           {youtubeMusicLink && (
             <a href={youtubeMusicLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on YouTube music" onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'youtube_music' })}>
-              <img src="/images/link-icons/YT_music_logo.png" alt="YouTube Music" />
+              <img src="images/link-icons/YT_music_logo.png" alt="YouTube Music" />
             </a>
           )}
           {appleMusicLink && (
             <a href={appleMusicLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Apple Music" onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'apple_music' })}>
-              <img src="/images/link-icons/apple_music_logo.png" alt="Apple Music" />
+              <img src="images/link-icons/apple_music_logo.png" alt="Apple Music" />
             </a>
           )}
           {amazonMusicLink && (
             <a href={amazonMusicLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Amazon Music" onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'amazon_music' })}>
-              <img src="/images/link-icons/amazon_music_logo.png" alt="Amazon Music" />
+              <img src="images/link-icons/amazon_music_logo.png" alt="Amazon Music" />
             </a>
           )}
         </div>
