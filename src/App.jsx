@@ -7,6 +7,7 @@ import Privacy from './components/Privacy.jsx';
 import Contact from './components/Contact.jsx';
 import NewsletterSignup from './components/NewsletterSignup.jsx';
 import Unsubscribe from './components/Unsubscribe.jsx';
+import EvenBetterChristmas from './components/EvenBetterChristmas.jsx';
 import './App.css';
 
 function App() {
@@ -57,6 +58,13 @@ function App() {
           {/* Navbar */}
           <div className="header">
             <nav className="navbar">
+              <p><Link to="/" className="nav-link" onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({
+                  top: 0,
+                  behavior: 'smooth'
+                });
+              }}>Home</Link></p>
               <p><Link to="/" className="nav-link" onClick={(e) => {
                 e.preventDefault();
                 const element = document.getElementById('about');
@@ -112,6 +120,9 @@ function App() {
                   appleMusicLink={newAlbum.appleMusicLink}
                   amazonMusicLink={newAlbum.amazonMusicLink}
                 />
+                <div className="album-page-link">
+                  <Link to="/even-better-christmas">View Album Page →</Link>
+                </div>
               </div>
 
               {/* Featured Album using AlbumItem */}
@@ -178,6 +189,7 @@ function App() {
       <Route path="/contact" element={<Contact />} />
       <Route path="/newsletter" element={<NewsletterSignup />} />
       <Route path="/unsubscribe" element={<Unsubscribe />} />
+      <Route path="/even-better-christmas" element={<EvenBetterChristmas />} />
     </Routes>
   );
 }

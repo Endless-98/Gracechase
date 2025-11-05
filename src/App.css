@@ -172,6 +172,22 @@ input[type="radio"] {
   max-width: 100%; /* Allow it to fill the new-album-container */
 }
 
+.album-page-link {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.album-page-link a {
+  color: #D4AF37;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.album-page-link a:hover {
+  text-decoration: underline;
+}
+
 .featured-album {
   display: flex;
   flex-direction: row;
