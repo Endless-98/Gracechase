@@ -84,10 +84,10 @@ const EvenBetterChristmas = () => {
         <div className="ebc-player-section">
           <iframe 
             className="ebc-spotify-embed" 
-            style={{borderRadius: '12px'}} 
+            style={{borderRadius: '16px'}} 
             src="https://open.spotify.com/embed/album/0FDPRyIXg50LXOdgH8g65b?utm_source=generator" 
             width="100%" 
-            height="967" 
+            height="969" 
             frameBorder="0" 
             allowFullScreen="" 
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
