@@ -98,22 +98,46 @@ const EvenBetterChristmas = () => {
 
           <div className="ebc-streaming-links">
             {albumData.spotifyLink && (
-              <a href={albumData.spotifyLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Spotify">
+              <a
+                href={albumData.spotifyLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Listen on Spotify"
+                onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'spotify', album: 'even_better_christmas' })}
+              >
                 <img src="images/link-icons/spotify_logo.png" alt="Spotify" />
               </a>
             )}
             {albumData.youtubeMusicLink && (
-              <a href={albumData.youtubeMusicLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on YouTube Music">
+              <a
+                href={albumData.youtubeMusicLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Listen on YouTube Music"
+                onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'youtube_music', album: 'even_better_christmas' })}
+              >
                 <img src="images/link-icons/YT_music_logo.png" alt="YouTube Music" />
               </a>
             )}
             {albumData.appleMusicLink && (
-              <a href={albumData.appleMusicLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Apple Music">
+              <a
+                href={albumData.appleMusicLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Listen on Apple Music"
+                onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'apple_music', album: 'even_better_christmas' })}
+              >
                 <img src="images/link-icons/apple_music_logo.png" alt="Apple Music" />
               </a>
             )}
             {albumData.amazonMusicLink && (
-              <a href={albumData.amazonMusicLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Amazon Music">
+              <a
+                href={albumData.amazonMusicLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Listen on Amazon Music"
+                onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'amazon_music', album: 'even_better_christmas' })}
+              >
                 <img src="images/link-icons/amazon_music_logo.png" alt="Amazon Music" />
               </a>
             )}
