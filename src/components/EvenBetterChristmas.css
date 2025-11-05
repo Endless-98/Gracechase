@@ -92,7 +92,7 @@
 .ebc-hero {
   text-align: center;
   margin-bottom: 0.5rem;
-  max-width: 500px;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 8px;
@@ -115,14 +115,14 @@
 }
 
 .ebc-player-section {
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 0 8px;
 }
 
 .ebc-spotify-embed {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 16px;
   display: block;
   margin-bottom: 1rem;
   box-shadow: 0 8px 24px rgba(25, 54, 79, 0.3);
@@ -184,7 +184,8 @@
   }
 
   .ebc-player-section {
-    padding: 1.5rem;
+    /* Match album image container padding so widths align on narrow screens */
+    padding: 0 8px;
   }
 
   .ebc-streaming-links a img {
