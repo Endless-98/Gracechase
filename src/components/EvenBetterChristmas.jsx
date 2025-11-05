@@ -75,7 +75,7 @@ const EvenBetterChristmas = () => {
         
         <div className="ebc-hero">
           <img 
-            src="/images/album-covers/Even Better Christmas Cover 1000px.jpg" 
+            src="images/album-covers/Even Better Christmas Cover 1000px.jpg" 
             alt="Even Better Christmas Album Cover" 
             className="ebc-cover"
           />
@@ -87,7 +87,7 @@ const EvenBetterChristmas = () => {
             style={{borderRadius: '12px'}} 
             src="https://open.spotify.com/embed/album/0FDPRyIXg50LXOdgH8g65b?utm_source=generator" 
             width="100%" 
-            height="739" 
+            height="967" 
             frameBorder="0" 
             allowFullScreen="" 
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
@@ -99,22 +99,22 @@ const EvenBetterChristmas = () => {
           <div className="ebc-streaming-links">
             {albumData.spotifyLink && (
               <a href={albumData.spotifyLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Spotify">
-                <img src="/images/link-icons/spotify_logo.png" alt="Spotify" />
+                <img src="images/link-icons/spotify_logo.png" alt="Spotify" />
               </a>
             )}
             {albumData.youtubeMusicLink && (
               <a href={albumData.youtubeMusicLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on YouTube Music">
-                <img src="/images/link-icons/YT_music_logo.png" alt="YouTube Music" />
+                <img src="images/link-icons/YT_music_logo.png" alt="YouTube Music" />
               </a>
             )}
             {albumData.appleMusicLink && (
               <a href={albumData.appleMusicLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Apple Music">
-                <img src="/images/link-icons/apple_music_logo.png" alt="Apple Music" />
+                <img src="images/link-icons/apple_music_logo.png" alt="Apple Music" />
               </a>
             )}
             {albumData.amazonMusicLink && (
               <a href={albumData.amazonMusicLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Amazon Music">
-                <img src="/images/link-icons/amazon_music_logo.png" alt="Amazon Music" />
+                <img src="images/link-icons/amazon_music_logo.png" alt="Amazon Music" />
               </a>
             )}
           </div>
