@@ -50,7 +50,9 @@
   font-style: normal;
   font-size: 2.5rem;
   color: rgb(25, 54, 79); /* Deep Blue */
-  margin-bottom: 2rem;
+  /* tighten vertical spacing */
+  margin: 0.4rem 0 0.8rem;
+  line-height: 1.05;
   font-weight: 400;
   letter-spacing: 0.05em;
   text-shadow: 
@@ -173,6 +175,8 @@
 
   .ebc-hero-text {
     font-size: 2rem;
+    line-height: 1.03;
+    margin: 0.3rem 0 0.7rem;
   }
 
   .ebc-hero h1 {
@@ -196,6 +200,8 @@
 
   .ebc-hero-text {
     font-size: 1.5rem;
+    line-height: 1.02;
+    margin: 0.2rem 0 0.6rem;
   }
 
   .ebc-hero h1 {
