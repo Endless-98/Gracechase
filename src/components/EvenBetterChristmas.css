@@ -41,7 +41,6 @@
 .ebc-content-wrapper {
   max-width: 900px;
   margin: 0 auto;
-  padding: 1rem 1rem 2rem 1rem;
 }
 
 .ebc-hero-text {
@@ -50,8 +49,8 @@
   font-style: normal;
   font-size: 2.5rem;
   color: rgb(25, 54, 79); /* Deep Blue */
-  /* tighten vertical spacing */
-  margin: 0.4rem 0 0.8rem;
+  /* equal, tight vertical spacing */
+  margin: 0rem 0 0.5rem;
   line-height: 1.05;
   font-weight: 400;
   letter-spacing: 0.05em;
@@ -176,7 +175,7 @@
   .ebc-hero-text {
     font-size: 2rem;
     line-height: 1.03;
-    margin: 0.3rem 0 0.7rem;
+    margin: 0.3rem 0 0.3rem;
   }
 
   .ebc-hero h1 {
@@ -202,7 +201,7 @@
   .ebc-hero-text {
     font-size: 1.5rem;
     line-height: 1.02;
-    margin: 0.2rem 0 0.6rem;
+    margin: 0.2rem 0 0.2rem;
   }
 
   .ebc-hero h1 {
