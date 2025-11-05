@@ -71,7 +71,7 @@ const EvenBetterChristmas = () => {
       </div>
 
       <div className="ebc-content-wrapper">
-        <p className="ebc-hero-text">Your new favorite Christmas album just dropped</p>
+        <p className="ebc-hero-text">Your new favorite Christmas album</p>
         
         <div className="ebc-hero">
           <img 
