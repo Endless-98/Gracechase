@@ -132,8 +132,7 @@ const LetMyHeartFindChristmas = () => {
 
         {/* 4. Secondary Album Offer */}
         <div className="lmhfc-album-section">
-          <h3 className="lmhfc-album-heading">Explore the Full Album</h3>
-          <p className="lmhfc-album-subheading">Even Better Christmas</p>
+          <h2 className="lmhfc-album-heading">Explore the Full Album</h2>
           
           <div className="lmhfc-album-content">
             <img 
