@@ -1,0 +1,296 @@
+/* Let My Heart Find Christmas Landing Page - Optimized for Ad 3 Conversions */
+
+.lmhfc-page {
+  min-height: 100vh;
+  background-color: rgb(227, 232, 235); /* Snow White */
+  padding: 0;
+  margin: 0;
+}
+
+.lmhfc-header {
+  width: 100%;
+  background-color: rgba(25, 54, 79, 0.95); /* Deep Blue */
+  padding: 1rem 0;
+}
+
+.lmhfc-navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.lmhfc-navbar p {
+  margin: 0;
+}
+
+.lmhfc-nav-link {
+  color: rgb(227, 232, 235); /* Snow White */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.lmhfc-nav-link:hover {
+  color: rgb(202, 163, 108); /* Sandy Blonde */
+  text-decoration: underline;
+}
+
+.lmhfc-content-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem 1rem;
+}
+
+/* 1. Headline */
+.lmhfc-headline {
+  text-align: center;
+  font-family: 'Brush Script MT', 'Lucida Handwriting', 'Lucida Calligraphy', cursive;
+  font-size: 3rem;
+  color: rgb(25, 54, 79); /* Deep Blue */
+  margin: 0 0 2rem 0;
+  line-height: 1.2;
+  text-shadow: 
+    0 0 10px rgba(227, 232, 235, 0.9),
+    0 0 20px rgba(227, 232, 235, 0.7),
+    2px 2px 4px rgba(25, 54, 79, 0.3);
+}
+
+/* 2. Hero Video Container */
+.lmhfc-video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  margin-bottom: 2rem;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(25, 54, 79, 0.4);
+}
+
+.lmhfc-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* 3. Primary CTA Section */
+.lmhfc-primary-cta {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.lmhfc-cta-headline {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: rgb(25, 54, 79);
+  margin: 0 0 1.5rem 0;
+  letter-spacing: 0.05em;
+}
+
+.lmhfc-streaming-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.lmhfc-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.2rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.lmhfc-btn img {
+  width: 32px;
+  height: 32px;
+}
+
+.lmhfc-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Spotify - Largest/Most Prominent */
+.lmhfc-btn-spotify {
+  background: linear-gradient(135deg, #1DB954 0%, #1ed760 100%);
+  color: #fff;
+  font-size: 1.4rem;
+  padding: 1.5rem 2.5rem;
+}
+
+.lmhfc-btn-spotify:hover {
+  background: linear-gradient(135deg, #1ed760 0%, #1DB954 100%);
+}
+
+.lmhfc-btn-apple {
+  background: linear-gradient(135deg, #FA243C 0%, #ff4757 100%);
+  color: #fff;
+}
+
+.lmhfc-btn-apple:hover {
+  background: linear-gradient(135deg, #ff4757 0%, #FA243C 100%);
+}
+
+.lmhfc-btn-youtube {
+  background: linear-gradient(135deg, #FF0000 0%, #ff3333 100%);
+  color: #fff;
+}
+
+.lmhfc-btn-youtube:hover {
+  background: linear-gradient(135deg, #ff3333 0%, #FF0000 100%);
+}
+
+.lmhfc-btn-amazon {
+  background: linear-gradient(135deg, #00A8E1 0%, #00c3ff 100%);
+  color: #fff;
+}
+
+.lmhfc-btn-amazon:hover {
+  background: linear-gradient(135deg, #00c3ff 0%, #00A8E1 100%);
+}
+
+/* 4. Secondary Album Section */
+.lmhfc-album-section {
+  border-top: 2px solid rgba(25, 54, 79, 0.2);
+  padding-top: 3rem;
+  text-align: center;
+}
+
+.lmhfc-album-heading {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.5rem;
+  color: rgb(25, 54, 79);
+  margin: 0 0 0.5rem 0;
+}
+
+.lmhfc-album-subheading {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: rgb(202, 163, 108); /* Sandy Blonde */
+  margin: 0 0 2rem 0;
+}
+
+.lmhfc-album-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.lmhfc-album-cover {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(25, 54, 79, 0.3);
+}
+
+.lmhfc-album-embed {
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 6px 20px rgba(25, 54, 79, 0.3);
+}
+
+.lmhfc-album-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.lmhfc-album-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 150ms ease, filter 150ms ease;
+}
+
+.lmhfc-album-links a img {
+  width: 56px;
+  height: 56px;
+  filter: drop-shadow(0 2px 6px rgba(25, 54, 79, 0.3));
+}
+
+.lmhfc-album-links a:hover {
+  transform: translateY(-2px) scale(1.08);
+  filter: drop-shadow(0 4px 8px rgba(202, 163, 108, 0.5));
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .lmhfc-navbar {
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  .lmhfc-headline {
+    font-size: 2.2rem;
+  }
+
+  .lmhfc-cta-headline {
+    font-size: 1.5rem;
+  }
+
+  .lmhfc-btn {
+    font-size: 1.1rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .lmhfc-btn-spotify {
+    font-size: 1.2rem;
+    padding: 1.2rem 2rem;
+  }
+
+  .lmhfc-btn img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lmhfc-content-wrapper {
+    padding: 1.5rem 0.5rem 2rem 0.5rem;
+  }
+
+  .lmhfc-headline {
+    font-size: 1.8rem;
+  }
+
+  .lmhfc-cta-headline {
+    font-size: 1.3rem;
+  }
+
+  .lmhfc-btn {
+    font-size: 1rem;
+    padding: 0.9rem 1.2rem;
+  }
+
+  .lmhfc-btn-spotify {
+    font-size: 1.1rem;
+    padding: 1.1rem 1.5rem;
+  }
+
+  .lmhfc-album-links a img {
+    width: 48px;
+    height: 48px;
+  }
+}

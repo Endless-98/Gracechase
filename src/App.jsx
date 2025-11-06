@@ -8,6 +8,7 @@ import Contact from './components/Contact.jsx';
 import NewsletterSignup from './components/NewsletterSignup.jsx';
 import Unsubscribe from './components/Unsubscribe.jsx';
 import EvenBetterChristmas from './components/EvenBetterChristmas.jsx';
+import LetMyHeartFindChristmas from './components/LetMyHeartFindChristmas.jsx';
 import './App.css';
 
 function App() {
@@ -190,6 +191,7 @@ function App() {
       <Route path="/newsletter" element={<NewsletterSignup />} />
       <Route path="/unsubscribe" element={<Unsubscribe />} />
       <Route path="/even-better-christmas" element={<EvenBetterChristmas />} />
+      <Route path="/let-my-heart-find-christmas" element={<LetMyHeartFindChristmas />} />
     </Routes>
   );
 }
