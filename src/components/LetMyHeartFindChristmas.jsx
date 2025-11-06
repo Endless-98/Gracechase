@@ -4,10 +4,10 @@ import './LetMyHeartFindChristmas.css';
 
 const LetMyHeartFindChristmas = () => {
   const songData = {
-    spotifyLink: 'https://open.spotify.com/track/4VnoAeof0MtBF1VH8yZUYC',
-    amazonMusicLink: 'https://music.amazon.com/albums/B0FWZ9VRCF?trackAsin=B0FWZBM8KC',
-    appleMusicLink: 'https://music.apple.com/us/album/let-my-heart-find-christmas/1847634777?i=1847634778',
-    youtubeMusicLink: 'https://music.youtube.com/watch?v=zNIB-Z5WQJY',
+    spotifyLink: 'https://open.spotify.com/track/3oHzD0CBikEYjepCw0jSUR',
+    amazonMusicLink: 'https://music.amazon.com/albums/B0FWZ9VRCF?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_YPp9Dcmls7KUynKPxZfcrZA6G&trackAsin=B0FWZD4RXG',
+    appleMusicLink: 'https://music.apple.com/us/song/let-my-heart-find-christmas/1847634790',
+    youtubeMusicLink: 'https://music.youtube.com/watch?v=ZU_5UIlvofo',
     youtubeVideoId: 'K3L3gG-xcyQ',
   };
 
@@ -61,8 +61,10 @@ const LetMyHeartFindChristmas = () => {
                   context: 'primary_cta'
                 })}
               >
-                <img src="images/link-icons/spotify_logo.png" alt="" />
-                <span>Listen on Spotify</span>
+                <div className="lmhfc-btn-icon">
+                  <img src="images/link-icons/Alt Streaming Service Icons/Spotify_Primary_Logo_RGB_Green.png" alt="" />
+                </div>
+                <div className="lmhfc-btn-text">Listen on Spotify</div>
               </a>
             )}
 
@@ -79,8 +81,10 @@ const LetMyHeartFindChristmas = () => {
                   context: 'primary_cta'
                 })}
               >
-                <img src="images/link-icons/apple_music_logo.png" alt="" />
-                <span>Listen on Apple Music</span>
+                <div className="lmhfc-btn-icon">
+                  <img src="images/link-icons/Alt Streaming Service Icons/music.cce3eb3f.svg" alt="" />
+                </div>
+                <div className="lmhfc-btn-text">Listen on Apple Music</div>
               </a>
             )}
 
@@ -97,8 +101,10 @@ const LetMyHeartFindChristmas = () => {
                   context: 'primary_cta'
                 })}
               >
-                <img src="images/link-icons/YT_music_logo.png" alt="" />
-                <span>Listen on YouTube Music</span>
+                <div className="lmhfc-btn-icon">
+                  <img src="images/link-icons/YT_music_logo.png" alt="" />
+                </div>
+                <div className="lmhfc-btn-text">Listen on YouTube Music</div>
               </a>
             )}
 
@@ -115,8 +121,10 @@ const LetMyHeartFindChristmas = () => {
                   context: 'primary_cta'
                 })}
               >
-                <img src="images/link-icons/amazon_music_logo.png" alt="" />
-                <span>Listen on Amazon Music</span>
+                <div className="lmhfc-btn-icon">
+                  <img src="images/link-icons/amazon_music_logo.png" alt="" />
+                </div>
+                <div className="lmhfc-btn-text">Listen on Amazon Music</div>
               </a>
             )}
           </div>

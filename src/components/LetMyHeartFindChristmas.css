@@ -2,7 +2,7 @@
 
 .lmhfc-page {
   min-height: 100vh;
-  background-color: rgb(227, 232, 235); /* Snow White */
+  background-color: rgb(241, 235, 229); /* Cream */
   padding: 0;
   margin: 0;
 }
@@ -19,10 +19,10 @@
   font-family: 'Georgia', 'Times New Roman', serif;
   font-size: 2.5rem;
   font-weight: 700;
-  color: rgb(25, 54, 79); /* Deep Blue */
+  color: rgb(45, 44, 40); /* Dark Brown */
   margin: 0 0 2rem 0;
   line-height: 1.2;
-  text-shadow: 0 2px 4px rgba(25, 54, 79, 0.2);
+  text-shadow: 0 2px 4px rgba(45, 44, 40, 0.2);
 }
 
 /* 2. Hero Video Container */
@@ -33,7 +33,7 @@
   margin-bottom: 2rem;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(25, 54, 79, 0.4);
+  box-shadow: 0 8px 32px rgba(45, 44, 40, 0.4);
 }
 
 .lmhfc-video {
@@ -55,7 +55,7 @@
   font-family: 'Georgia', 'Times New Roman', serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: rgb(25, 54, 79);
+  color: rgb(45, 44, 40);
   margin: 0 0 1.5rem 0;
   letter-spacing: 0.03em;
 }
@@ -69,42 +69,79 @@
 }
 
 .lmhfc-btn {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1.2rem 2rem;
+  padding: 0;
   border-radius: 50px;
   text-decoration: none;
-  font-family: 'Georgia', 'Times New Roman', serif;
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.32rem;
+  font-weight: 600;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   border: none;
   cursor: pointer;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
+  overflow: hidden;
 }
 
-.lmhfc-btn img {
+.lmhfc-btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 1.5rem;
+  background: rgba(255, 255, 255, 1);
+  border-right: 1px solid rgba(255, 255, 255, 1);
+}
+
+.lmhfc-btn-icon img {
   width: 36px;
   height: 36px;
+  display: block;
+  border-radius: 50%;
+}
+
+.lmhfc-btn-text {
+  padding: 1.2rem 2rem;
+  text-align: left;
+  color: #fff;
 }
 
 .lmhfc-btn:hover {
   transform: translateY(-4px) scale(1.02);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
 }
 
 .lmhfc-btn:active {
   transform: translateY(-2px) scale(1.01);
 }
 
-/* All buttons same size - Spotify slightly more prominent via color only */
+/* Spotify - most prominent */
 .lmhfc-btn-spotify {
   background: linear-gradient(135deg, #1DB954 0%, #1ed760 100%);
-  color: #fff;
   box-shadow: 0 6px 25px rgba(29, 185, 84, 0.4);
+}
+
+.lmhfc-btn-spotify .lmhfc-btn-icon {
+  background: rgba(255, 255, 255, 0.65);
+  position: relative;
+}
+
+.lmhfc-btn-spotify .lmhfc-btn-icon::before {
+  content: '';
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: white;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.lmhfc-btn-spotify .lmhfc-btn-icon img {
+  position: relative;
+  z-index: 1;
 }
 
 .lmhfc-btn-spotify:hover {
@@ -112,10 +149,18 @@
   box-shadow: 0 12px 40px rgba(29, 185, 84, 0.5);
 }
 
+.lmhfc-btn-spotify:hover .lmhfc-btn-text {
+  color: #0d5c2e;
+  text-decoration: none;
+}
+
 .lmhfc-btn-apple {
   background: linear-gradient(135deg, #FA243C 0%, #ff4757 100%);
-  color: #fff;
   box-shadow: 0 4px 15px rgba(250, 36, 60, 0.3);
+}
+
+.lmhfc-btn-apple .lmhfc-btn-icon {
+  background: rgba(255, 255, 255, 0.45);
 }
 
 .lmhfc-btn-apple:hover {
@@ -123,10 +168,18 @@
   box-shadow: 0 10px 30px rgba(250, 36, 60, 0.4);
 }
 
+.lmhfc-btn-apple:hover .lmhfc-btn-text {
+  color: #8b0e1c;
+  text-decoration: none;
+}
+
 .lmhfc-btn-youtube {
   background: linear-gradient(135deg, #FF0000 0%, #ff3333 100%);
-  color: #fff;
   box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+}
+
+.lmhfc-btn-youtube .lmhfc-btn-icon {
+  background: rgba(255, 255, 255, 0.45);
 }
 
 .lmhfc-btn-youtube:hover {
@@ -134,20 +187,33 @@
   box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
 }
 
+.lmhfc-btn-youtube:hover .lmhfc-btn-text {
+  color: #990000;
+  text-decoration: none;
+}
+
 .lmhfc-btn-amazon {
-  background: linear-gradient(135deg, #00A8E1 0%, #00c3ff 100%);
-  color: #fff;
-  box-shadow: 0 4px 15px rgba(0, 168, 225, 0.3);
+  background: linear-gradient(135deg, #25D3DA 0%, #4de3e9 100%);
+  box-shadow: 0 4px 15px rgba(37, 211, 218, 0.3);
+}
+
+.lmhfc-btn-amazon .lmhfc-btn-icon {
+  background: rgba(255, 255, 255, 0.45);
 }
 
 .lmhfc-btn-amazon:hover {
-  background: linear-gradient(135deg, #00c3ff 0%, #00A8E1 100%);
-  box-shadow: 0 10px 30px rgba(0, 168, 225, 0.4);
+  background: linear-gradient(135deg, #4de3e9 0%, #25D3DA 100%);
+  box-shadow: 0 10px 30px rgba(37, 211, 218, 0.4);
+}
+
+.lmhfc-btn-amazon:hover .lmhfc-btn-text {
+  color: #126b70;
+  text-decoration: none;
 }
 
 /* 4. Secondary Album Section */
 .lmhfc-album-section {
-  border-top: 2px solid rgba(25, 54, 79, 0.2);
+  border-top: 2px solid rgba(45, 44, 40, 0.2);
   padding-top: 3rem;
   text-align: center;
 }
@@ -155,7 +221,7 @@
 .lmhfc-album-heading {
   font-family: 'Georgia', 'Times New Roman', serif;
   font-size: 1.5rem;
-  color: rgb(25, 54, 79);
+  color: rgb(45, 44, 40);
   margin: 0 0 0.5rem 0;
 }
 
@@ -163,7 +229,7 @@
   font-family: 'Georgia', 'Times New Roman', serif;
   font-style: italic;
   font-size: 1.2rem;
-  color: rgb(202, 163, 108); /* Sandy Blonde */
+  color: rgb(204, 175, 109); /* Gold */
   margin: 0 0 2rem 0;
 }
 
@@ -177,16 +243,16 @@
 
 .lmhfc-album-cover {
   width: 100%;
-  max-width: 300px;
+  max-width: 500px;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(25, 54, 79, 0.3);
+  box-shadow: 0 6px 20px rgba(45, 44, 40, 0.3);
 }
 
 .lmhfc-album-embed {
   width: 100%;
   max-width: 500px;
-  box-shadow: 0 6px 20px rgba(25, 54, 79, 0.3);
+  box-shadow: 0 6px 20px rgba(45, 44, 40, 0.3);
 }
 
 .lmhfc-album-links {
@@ -207,12 +273,12 @@
 .lmhfc-album-links a img {
   width: 56px;
   height: 56px;
-  filter: drop-shadow(0 2px 6px rgba(25, 54, 79, 0.3));
+  filter: drop-shadow(0 2px 6px rgba(45, 44, 40, 0.3));
 }
 
 .lmhfc-album-links a:hover {
   transform: translateY(-2px) scale(1.08);
-  filter: drop-shadow(0 4px 8px rgba(202, 163, 108, 0.5));
+  filter: drop-shadow(0 4px 8px rgba(204, 175, 109, 0.5));
 }
 
 /* Responsive */
@@ -225,14 +291,18 @@
     font-size: 1.3rem;
   }
 
-  .lmhfc-btn {
-    font-size: 1rem;
-    padding: 1rem 1.5rem;
+  .lmhfc-btn-icon {
+    padding: 1rem 1.2rem;
   }
 
-  .lmhfc-btn img {
+  .lmhfc-btn-icon img {
     width: 32px;
     height: 32px;
+  }
+
+  .lmhfc-btn-text {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
   }
 }
 
@@ -249,14 +319,18 @@
     font-size: 1.1rem;
   }
 
-  .lmhfc-btn {
-    font-size: 0.95rem;
-    padding: 0.9rem 1.2rem;
+  .lmhfc-btn-icon {
+    padding: 0.9rem 1rem;
   }
 
-  .lmhfc-btn img {
+  .lmhfc-btn-icon img {
     width: 28px;
     height: 28px;
+  }
+
+  .lmhfc-btn-text {
+    padding: 0.9rem 1.2rem;
+    font-size: 0.95rem;
   }
 
   .lmhfc-album-links a img {
