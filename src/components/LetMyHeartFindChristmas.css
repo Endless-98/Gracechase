@@ -7,56 +7,22 @@
   margin: 0;
 }
 
-.lmhfc-header {
-  width: 100%;
-  background-color: rgba(25, 54, 79, 0.95); /* Deep Blue */
-  padding: 1rem 0;
-}
-
-.lmhfc-navbar {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-}
-
-.lmhfc-navbar p {
-  margin: 0;
-}
-
-.lmhfc-nav-link {
-  color: rgb(227, 232, 235); /* Snow White */
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
-.lmhfc-nav-link:hover {
-  color: rgb(202, 163, 108); /* Sandy Blonde */
-  text-decoration: underline;
-}
-
 .lmhfc-content-wrapper {
   max-width: 900px;
   margin: 0 auto;
-  padding: 2rem 1rem 3rem 1rem;
+  padding: 3rem 1rem 3rem 1rem;
 }
 
 /* 1. Headline */
 .lmhfc-headline {
   text-align: center;
-  font-family: 'Brush Script MT', 'Lucida Handwriting', 'Lucida Calligraphy', cursive;
-  font-size: 3rem;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
   color: rgb(25, 54, 79); /* Deep Blue */
   margin: 0 0 2rem 0;
   line-height: 1.2;
-  text-shadow: 
-    0 0 10px rgba(227, 232, 235, 0.9),
-    0 0 20px rgba(227, 232, 235, 0.7),
-    2px 2px 4px rgba(25, 54, 79, 0.3);
+  text-shadow: 0 2px 4px rgba(25, 54, 79, 0.2);
 }
 
 /* 2. Hero Video Container */
@@ -87,11 +53,11 @@
 
 .lmhfc-cta-headline {
   font-family: 'Georgia', 'Times New Roman', serif;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: rgb(25, 54, 79);
   margin: 0 0 1.5rem 0;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
 }
 
 .lmhfc-streaming-buttons {
@@ -108,61 +74,75 @@
   justify-content: center;
   gap: 1rem;
   padding: 1.2rem 2rem;
-  border-radius: 12px;
+  border-radius: 50px;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.1rem;
   font-weight: 700;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.02em;
 }
 
 .lmhfc-btn img {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
 }
 
 .lmhfc-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Spotify - Largest/Most Prominent */
+.lmhfc-btn:active {
+  transform: translateY(-2px) scale(1.01);
+}
+
+/* All buttons same size - Spotify slightly more prominent via color only */
 .lmhfc-btn-spotify {
   background: linear-gradient(135deg, #1DB954 0%, #1ed760 100%);
   color: #fff;
-  font-size: 1.4rem;
-  padding: 1.5rem 2.5rem;
+  box-shadow: 0 6px 25px rgba(29, 185, 84, 0.4);
 }
 
 .lmhfc-btn-spotify:hover {
   background: linear-gradient(135deg, #1ed760 0%, #1DB954 100%);
+  box-shadow: 0 12px 40px rgba(29, 185, 84, 0.5);
 }
 
 .lmhfc-btn-apple {
   background: linear-gradient(135deg, #FA243C 0%, #ff4757 100%);
   color: #fff;
+  box-shadow: 0 4px 15px rgba(250, 36, 60, 0.3);
 }
 
 .lmhfc-btn-apple:hover {
   background: linear-gradient(135deg, #ff4757 0%, #FA243C 100%);
+  box-shadow: 0 10px 30px rgba(250, 36, 60, 0.4);
 }
 
 .lmhfc-btn-youtube {
   background: linear-gradient(135deg, #FF0000 0%, #ff3333 100%);
   color: #fff;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
 }
 
 .lmhfc-btn-youtube:hover {
   background: linear-gradient(135deg, #ff3333 0%, #FF0000 100%);
+  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
 }
 
 .lmhfc-btn-amazon {
   background: linear-gradient(135deg, #00A8E1 0%, #00c3ff 100%);
   color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 168, 225, 0.3);
 }
 
 .lmhfc-btn-amazon:hover {
   background: linear-gradient(135deg, #00c3ff 0%, #00A8E1 100%);
+  box-shadow: 0 10px 30px rgba(0, 168, 225, 0.4);
 }
 
 /* 4. Secondary Album Section */
@@ -237,42 +217,8 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .lmhfc-navbar {
-    padding: 0 1rem;
-    gap: 1rem;
-  }
-
   .lmhfc-headline {
-    font-size: 2.2rem;
-  }
-
-  .lmhfc-cta-headline {
-    font-size: 1.5rem;
-  }
-
-  .lmhfc-btn {
-    font-size: 1.1rem;
-    padding: 1rem 1.5rem;
-  }
-
-  .lmhfc-btn-spotify {
-    font-size: 1.2rem;
-    padding: 1.2rem 2rem;
-  }
-
-  .lmhfc-btn img {
-    width: 28px;
-    height: 28px;
-  }
-}
-
-@media (max-width: 480px) {
-  .lmhfc-content-wrapper {
-    padding: 1.5rem 0.5rem 2rem 0.5rem;
-  }
-
-  .lmhfc-headline {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .lmhfc-cta-headline {
@@ -281,12 +227,36 @@
 
   .lmhfc-btn {
     font-size: 1rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .lmhfc-btn img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lmhfc-content-wrapper {
+    padding: 2rem 0.5rem 2rem 0.5rem;
+  }
+
+  .lmhfc-headline {
+    font-size: 1.6rem;
+  }
+
+  .lmhfc-cta-headline {
+    font-size: 1.1rem;
+  }
+
+  .lmhfc-btn {
+    font-size: 0.95rem;
     padding: 0.9rem 1.2rem;
   }
 
-  .lmhfc-btn-spotify {
-    font-size: 1.1rem;
-    padding: 1.1rem 1.5rem;
+  .lmhfc-btn img {
+    width: 28px;
+    height: 28px;
   }
 
   .lmhfc-album-links a img {

@@ -8,7 +8,7 @@ const LetMyHeartFindChristmas = () => {
     amazonMusicLink: 'https://music.amazon.com/albums/B0FWZ9VRCF?trackAsin=B0FWZBM8KC',
     appleMusicLink: 'https://music.apple.com/us/album/let-my-heart-find-christmas/1847634777?i=1847634778',
     youtubeMusicLink: 'https://music.youtube.com/watch?v=zNIB-Z5WQJY',
-    youtubeVideoId: 'XyBUSEm6a7A', // Replace with actual video ID when available
+    youtubeVideoId: 'K3L3gG-xcyQ',
   };
 
   const albumData = {
@@ -27,14 +27,6 @@ const LetMyHeartFindChristmas = () => {
 
   return (
     <div className="lmhfc-page">
-      {/* Header */}
-      <div className="lmhfc-header">
-        <nav className="lmhfc-navbar">
-          <p><Link to="/" className="lmhfc-nav-link">Home</Link></p>
-          <p><Link to="/newsletter" className="lmhfc-nav-link">Stay in touch</Link></p>
-        </nav>
-      </div>
-
       <div className="lmhfc-content-wrapper">
         {/* 1. Headline */}
         <h1 className="lmhfc-headline">The Christmas Song That Finds You.</h1>
@@ -43,7 +35,7 @@ const LetMyHeartFindChristmas = () => {
         <div className="lmhfc-video-container">
           <iframe
             className="lmhfc-video"
-            src={`https://www.youtube.com/embed/${songData.youtubeVideoId}?autoplay=0&rel=0`}
+            src={`https://www.youtube.com/embed/${songData.youtubeVideoId}?autoplay=1&mute=1&rel=0`}
             title="Let My Heart Find Christmas - Music Video"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
