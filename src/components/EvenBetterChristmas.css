@@ -46,7 +46,7 @@
 
 .ebc-hero-text {
   text-align: center;
-  font-family: 'Brush Script MT', 'Lucida Handwriting', 'Lucida Calligraphy', cursive;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-style: normal;
   font-size: 2.5rem;
   color: rgb(25, 54, 79); /* Deep Blue */
@@ -130,7 +130,7 @@
 
 .ebc-platform-text {
   text-align: center;
-  font-family: 'Georgia', 'Times New Roman', serif;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-style: italic;
   color: rgb(25, 54, 79); /* Deep Blue */
   font-size: 1.3rem;
@@ -163,16 +163,6 @@
 /* White circle behind Spotify icon */
 .ebc-streaming-links a:first-child {
   position: relative;
-}
-
-.ebc-streaming-links a:first-child::before {
-  content: '';
-  position: absolute;
-  width: 56px;
-  height: 56px;
-  background: white;
-  border-radius: 50%;
-  z-index: 0;
 }
 
 .ebc-streaming-links a:first-child img {

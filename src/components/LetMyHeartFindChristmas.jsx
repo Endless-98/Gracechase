@@ -28,8 +28,6 @@ const LetMyHeartFindChristmas = () => {
   return (
     <div className="lmhfc-page">
       <div className="lmhfc-content-wrapper">
-        {/* 1. Headline */}
-        <h1 className="lmhfc-headline">The Christmas Song That Finds You.</h1>
 
         {/* 2. Hero Video */}
         <div className="lmhfc-video-container">
@@ -88,26 +86,6 @@ const LetMyHeartFindChristmas = () => {
               </a>
             )}
 
-            {/* YouTube Music */}
-            {songData.youtubeMusicLink && (
-              <a
-                href={songData.youtubeMusicLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="lmhfc-btn lmhfc-btn-youtube"
-                onClick={() => window.gtag && window.gtag('event', 'music_service_click', { 
-                  service: 'youtube_music', 
-                  song: 'let_my_heart_find_christmas',
-                  context: 'primary_cta'
-                })}
-              >
-                <div className="lmhfc-btn-icon">
-                  <img src="images/link-icons/YT_music_logo.png" alt="" />
-                </div>
-                <div className="lmhfc-btn-text">Listen on YouTube Music</div>
-              </a>
-            )}
-
             {/* Amazon Music */}
             {songData.amazonMusicLink && (
               <a
@@ -127,6 +105,26 @@ const LetMyHeartFindChristmas = () => {
                 <div className="lmhfc-btn-text">Listen on Amazon Music</div>
               </a>
             )}
+            
+            {/* YouTube Music */}
+            {songData.youtubeMusicLink && (
+              <a
+                href={songData.youtubeMusicLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="lmhfc-btn lmhfc-btn-youtube"
+                onClick={() => window.gtag && window.gtag('event', 'music_service_click', { 
+                  service: 'youtube_music', 
+                  song: 'let_my_heart_find_christmas',
+                  context: 'primary_cta'
+                })}
+              >
+                <div className="lmhfc-btn-icon">
+                  <img src="images/link-icons/YT_music_logo.png" alt="" />
+                </div>
+                <div className="lmhfc-btn-text">Listen on YouTube Music</div>
+              </a>
+            )}
           </div>
         </div>
 
@@ -135,12 +133,6 @@ const LetMyHeartFindChristmas = () => {
           <h2 className="lmhfc-album-heading">Explore the Full Album</h2>
           
           <div className="lmhfc-album-content">
-            <img 
-              src="images/album-covers/Even Better Christmas Cover 1000px.jpg" 
-              alt="Even Better Christmas Album Cover" 
-              className="lmhfc-album-cover"
-            />
-            
             <iframe
               className="lmhfc-album-embed"
               style={{borderRadius: '12px'}}
@@ -217,6 +209,22 @@ const LetMyHeartFindChristmas = () => {
             )}
           </div>
         </div>
+
+        {/* Footer */}
+        <footer className="lmhfc-footer">
+          <div className="lmhfc-footer-content">
+            <p>&copy; 2025 Gracechase. All rights reserved. |
+              {' '}
+              <Link to="/privacy">Privacy Policy</Link>
+              {' '}|
+              {' '}
+              <Link to="/contact">Contact</Link>
+              {' '}|
+              {' '}
+              <Link to="/">Home</Link>
+            </p>
+          </div>
+        </footer>
       </div>
     </div>
   );
