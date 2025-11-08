@@ -105,7 +105,7 @@ const EvenBetterChristmas = () => {
                 aria-label="Listen on Spotify"
                 onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'spotify', album: 'even_better_christmas' })}
               >
-                <img src="images/link-icons/spotify_logo.png" alt="Spotify" />
+                <img src="images/link-icons/Alt Streaming Service Icons/Spotify_Primary_Logo_RGB_Green.png" alt="Spotify" />
               </a>
             )}
             {albumData.youtubeMusicLink && (
@@ -127,7 +127,7 @@ const EvenBetterChristmas = () => {
                 aria-label="Listen on Apple Music"
                 onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'apple_music', album: 'even_better_christmas' })}
               >
-                <img src="images/link-icons/apple_music_logo.png" alt="Apple Music" />
+                <img src="images/link-icons/Alt Streaming Service Icons/music.cce3eb3f.svg" alt="Apple Music" />
               </a>
             )}
             {albumData.amazonMusicLink && (

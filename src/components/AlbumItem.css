@@ -58,12 +58,28 @@ p {
   height: 32px;
   object-fit: contain;
   transition: opacity 0.2s;
+  border-radius: 50%;
 }
 .streaming-links img:hover { opacity: 0.8; }
-/* Rounded corners for bitmap icons like the Amazon PNG */
-.streaming-links img {
-  border-radius: 5px;
-  overflow: hidden;
+
+/* White circle behind Spotify icon */
+.streaming-links a:first-child {
+  position: relative;
+}
+
+.streaming-links a:first-child::before {
+  content: '';
+  position: absolute;
+  width: 49px;
+  height: 49px;
+  background: white;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.streaming-links a:first-child img {
+  position: relative;
+  z-index: 1;
 }
 .album-container {
   display: flex;

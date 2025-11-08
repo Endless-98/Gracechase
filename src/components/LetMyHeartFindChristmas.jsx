@@ -8,7 +8,7 @@ const LetMyHeartFindChristmas = () => {
     amazonMusicLink: 'https://music.amazon.com/albums/B0FWZ9VRCF?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_YPp9Dcmls7KUynKPxZfcrZA6G&trackAsin=B0FWZD4RXG',
     appleMusicLink: 'https://music.apple.com/us/song/let-my-heart-find-christmas/1847634790',
     youtubeMusicLink: 'https://music.youtube.com/watch?v=ZU_5UIlvofo',
-    youtubeVideoId: 'K3L3gG-xcyQ',
+    youtubeVideoId: 'Z-NfhHJEkPY',
   };
 
   const albumData = {
@@ -146,7 +146,7 @@ const LetMyHeartFindChristmas = () => {
               style={{borderRadius: '12px'}}
               src={`https://open.spotify.com/embed/album/${albumData.spotifyAlbumId}?utm_source=generator`}
               width="100%"
-              height="380"
+              height="975.333"
               frameBorder="0"
               allowFullScreen=""
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -167,7 +167,7 @@ const LetMyHeartFindChristmas = () => {
                   context: 'secondary_album_offer'
                 })}
               >
-                <img src="images/link-icons/spotify_logo.png" alt="Spotify" />
+                <img src="images/link-icons/Alt Streaming Service Icons/Spotify_Primary_Logo_RGB_Green.png" alt="Spotify" />
               </a>
             )}
             {albumData.youtubeMusicLink && (
@@ -197,7 +197,7 @@ const LetMyHeartFindChristmas = () => {
                   context: 'secondary_album_offer'
                 })}
               >
-                <img src="images/link-icons/apple_music_logo.png" alt="Apple Music" />
+                <img src="images/link-icons/Alt Streaming Service Icons/music.cce3eb3f.svg" alt="Apple Music" />
               </a>
             )}
             {albumData.amazonMusicLink && (

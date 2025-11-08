@@ -157,6 +157,27 @@
   width: 64px !important;
   height: 64px !important;
   filter: drop-shadow(0 2px 6px rgba(25, 54, 79, 0.3));
+  border-radius: 50%;
+}
+
+/* White circle behind Spotify icon */
+.ebc-streaming-links a:first-child {
+  position: relative;
+}
+
+.ebc-streaming-links a:first-child::before {
+  content: '';
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  background: white;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.ebc-streaming-links a:first-child img {
+  position: relative;
+  z-index: 1;
 }
 
 .ebc-streaming-links a:hover {
