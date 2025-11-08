@@ -90,20 +90,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.2rem 1.5rem;
+  padding: 1.152rem 1.44rem;
   background: rgba(255, 255, 255, 1);
   border-right: none;
 }
 
 .lmhfc-btn-icon img {
-  width: 36px;
-  height: 36px;
+  width: 54px;
+  height: 54px;
   display: block;
   border-radius: 50%;
 }
 
 .lmhfc-btn-text {
-  padding: 1.2rem 2rem;
+  padding: 0.96rem 1.6rem;
   text-align: left;
   color: #fff;
 }
@@ -132,8 +132,8 @@
 .lmhfc-btn-spotify .lmhfc-btn-icon::before {
   content: '';
   position: absolute;
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   background: white;
   border-radius: 50%;
   z-index: 0;
