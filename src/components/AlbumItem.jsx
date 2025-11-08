@@ -17,7 +17,7 @@ const AlbumItem = ({ spotifyLink, youtubeMusicLink, appleMusicLink, amazonMusicL
         <div className="streaming-links">
           {spotifyLink && (
             <a href={spotifyLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Spotify" onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'spotify' })}>
-              <img src="images/link-icons/Alt Streaming Service Icons/Spotify_Primary_Logo_RGB_Green.png" alt="Spotify" />
+              <img src="images/link-icons/Alt Streaming Service Icons/Spotify_Primary_Logo_RGB_Green.png?v=2" alt="Spotify" />
             </a>
           )}
           {youtubeMusicLink && (

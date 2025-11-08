@@ -105,7 +105,7 @@ const EvenBetterChristmas = () => {
                 aria-label="Listen on Spotify"
                 onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'spotify', album: 'even_better_christmas' })}
               >
-                <img src="images/link-icons/Alt Streaming Service Icons/Spotify_Primary_Logo_RGB_Green.png" alt="Spotify" />
+                <img src="images/link-icons/Alt Streaming Service Icons/Spotify_Primary_Logo_RGB_Green.png?v=2" alt="Spotify" />
               </a>
             )}
             {albumData.youtubeMusicLink && (

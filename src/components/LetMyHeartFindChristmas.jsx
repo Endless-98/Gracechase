@@ -60,7 +60,7 @@ const LetMyHeartFindChristmas = () => {
                 })}
               >
                 <div className="lmhfc-btn-icon">
-                  <img src="images/link-icons/Alt Streaming Service Icons/Spotify_Primary_Logo_RGB_Green.png" alt="" />
+                  <img src="images/link-icons/Alt Streaming Service Icons/Spotify_Primary_Logo_RGB_Green.png?v=2" alt="" />
                 </div>
                 <div className="lmhfc-btn-text">Listen on Spotify</div>
               </a>
@@ -159,7 +159,7 @@ const LetMyHeartFindChristmas = () => {
                   context: 'secondary_album_offer'
                 })}
               >
-                <img src="images/link-icons/Alt Streaming Service Icons/Spotify_Primary_Logo_RGB_Green.png" alt="Spotify" />
+                <img src="images/link-icons/Alt Streaming Service Icons/Spotify_Primary_Logo_RGB_Green.png?v=2" alt="Spotify" />
               </a>
             )}
             {albumData.youtubeMusicLink && (
