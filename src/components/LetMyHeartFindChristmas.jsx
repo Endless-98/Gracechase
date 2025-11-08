@@ -130,7 +130,7 @@ const LetMyHeartFindChristmas = () => {
 
         {/* 4. Secondary Album Offer */}
         <div className="lmhfc-album-section">
-          <h2 className="lmhfc-album-heading">Explore the Full Album</h2>
+          <h2 className="lmhfc-album-heading">EXPLORE THE FULL ALBUM</h2>
           
           <div className="lmhfc-album-content">
             <iframe
