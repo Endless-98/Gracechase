@@ -16,22 +16,46 @@ const AlbumItem = ({ spotifyLink, youtubeMusicLink, appleMusicLink, amazonMusicL
         )}
         <div className="streaming-links">
           {spotifyLink && (
-            <a href={spotifyLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Spotify" onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'spotify' })}>
+            <a href={spotifyLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Spotify" onClick={() => window.gtag && window.gtag('event', 'music_service_click', { 
+              service: 'spotify',
+              page_path: window.location.pathname,
+              page_title: document.title,
+              element_position: 'album_card_link_1',
+              content_type: 'album_card'
+            })}>
               <img src="images/link-icons/Alt Streaming Service Icons/Spotify_Primary_Logo_RGB_Green.png?v=2" alt="Spotify" />
             </a>
           )}
           {youtubeMusicLink && (
-            <a href={youtubeMusicLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on YouTube music" onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'youtube_music' })}>
+            <a href={youtubeMusicLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on YouTube music" onClick={() => window.gtag && window.gtag('event', 'music_service_click', { 
+              service: 'youtube_music',
+              page_path: window.location.pathname,
+              page_title: document.title,
+              element_position: 'album_card_link_2',
+              content_type: 'album_card'
+            })}>
               <img src="images/link-icons/YT_music_logo.png" alt="YouTube Music" />
             </a>
           )}
           {appleMusicLink && (
-            <a href={appleMusicLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Apple Music" onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'apple_music' })}>
+            <a href={appleMusicLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Apple Music" onClick={() => window.gtag && window.gtag('event', 'music_service_click', { 
+              service: 'apple_music',
+              page_path: window.location.pathname,
+              page_title: document.title,
+              element_position: 'album_card_link_3',
+              content_type: 'album_card'
+            })}>
               <img src="images/link-icons/Alt Streaming Service Icons/music.cce3eb3f.svg" alt="Apple Music" />
             </a>
           )}
           {amazonMusicLink && (
-            <a href={amazonMusicLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Amazon Music" onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'amazon_music' })}>
+            <a href={amazonMusicLink} target="_blank" rel="noopener noreferrer" aria-label="Listen on Amazon Music" onClick={() => window.gtag && window.gtag('event', 'music_service_click', { 
+              service: 'amazon_music',
+              page_path: window.location.pathname,
+              page_title: document.title,
+              element_position: 'album_card_link_4',
+              content_type: 'album_card'
+            })}>
               <img src="images/link-icons/amazon_music_logo.png" alt="Amazon Music" />
             </a>
           )}

@@ -103,7 +103,14 @@ const EvenBetterChristmas = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Listen on Spotify"
-                onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'spotify', album: 'even_better_christmas' })}
+                onClick={() => window.gtag && window.gtag('event', 'music_service_click', { 
+                  service: 'spotify', 
+                  album: 'even_better_christmas',
+                  page_path: '/even-better-christmas',
+                  page_title: 'Even Better Christmas - Gracechase',
+                  element_position: 'streaming_link_1',
+                  content_type: 'album_page'
+                })}
               >
                 <img src="images/link-icons/Alt Streaming Service Icons/Spotify_Primary_Logo_RGB_Green.png?v=2" alt="Spotify" />
               </a>
@@ -114,7 +121,14 @@ const EvenBetterChristmas = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Listen on YouTube Music"
-                onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'youtube_music', album: 'even_better_christmas' })}
+                onClick={() => window.gtag && window.gtag('event', 'music_service_click', { 
+                  service: 'youtube_music', 
+                  album: 'even_better_christmas',
+                  page_path: '/even-better-christmas',
+                  page_title: 'Even Better Christmas - Gracechase',
+                  element_position: 'streaming_link_2',
+                  content_type: 'album_page'
+                })}
               >
                 <img src="images/link-icons/YT_music_logo.png" alt="YouTube Music" />
               </a>
@@ -125,7 +139,14 @@ const EvenBetterChristmas = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Listen on Apple Music"
-                onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'apple_music', album: 'even_better_christmas' })}
+                onClick={() => window.gtag && window.gtag('event', 'music_service_click', { 
+                  service: 'apple_music', 
+                  album: 'even_better_christmas',
+                  page_path: '/even-better-christmas',
+                  page_title: 'Even Better Christmas - Gracechase',
+                  element_position: 'streaming_link_3',
+                  content_type: 'album_page'
+                })}
               >
                 <img src="images/link-icons/Alt Streaming Service Icons/music.cce3eb3f.svg" alt="Apple Music" />
               </a>
@@ -136,7 +157,14 @@ const EvenBetterChristmas = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Listen on Amazon Music"
-                onClick={() => window.gtag && window.gtag('event', 'music_service_click', { service: 'amazon_music', album: 'even_better_christmas' })}
+                onClick={() => window.gtag && window.gtag('event', 'music_service_click', { 
+                  service: 'amazon_music', 
+                  album: 'even_better_christmas',
+                  page_path: '/even-better-christmas',
+                  page_title: 'Even Better Christmas - Gracechase',
+                  element_position: 'streaming_link_4',
+                  content_type: 'album_page'
+                })}
               >
                 <img src="images/link-icons/amazon_music_logo.png" alt="Amazon Music" />
               </a>

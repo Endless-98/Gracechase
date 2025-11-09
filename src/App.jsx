@@ -94,7 +94,13 @@ function App() {
                   });
                 }
               }}>Releases</Link></p>
-              <p><Link to="/newsletter" className="nav-link">Stay in touch</Link></p>
+              <p><Link to="/newsletter" className="nav-link" onClick={() => window.gtag && window.gtag('event', 'navigation_click', {
+                destination: '/newsletter',
+                page_path: window.location.pathname,
+                page_title: document.title,
+                element_position: 'nav_newsletter',
+                content_type: 'navigation'
+              })}>Stay in touch</Link></p>
               {/* <p><Link to="/blog" className="nav-link">Blog</Link></p> */}
             </nav>
           </div>
@@ -122,7 +128,13 @@ function App() {
                   amazonMusicLink={newAlbum.amazonMusicLink}
                 />
                 <div className="album-page-link">
-                  <Link to="/even-better-christmas">View Album Page →</Link>
+                  <Link to="/even-better-christmas" onClick={() => window.gtag && window.gtag('event', 'page_view_click', {
+                    destination: '/even-better-christmas',
+                    page_path: '/',
+                    page_title: 'Gracechase - Home',
+                    element_position: 'new_album_cta',
+                    content_type: 'navigation'
+                  })}>View Album Page →</Link>
                 </div>
               </div>
 

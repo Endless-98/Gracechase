@@ -56,7 +56,12 @@ const LetMyHeartFindChristmas = () => {
                 onClick={() => window.gtag && window.gtag('event', 'music_service_click', { 
                   service: 'spotify', 
                   song: 'let_my_heart_find_christmas',
-                  context: 'primary_cta'
+                  context: 'primary_cta',
+                  page_path: '/let-my-heart-find-christmas',
+                  page_title: 'Let My Heart Find Christmas - Gracechase',
+                  element_position: 'button_1',
+                  campaign_source: 'ad_campaign_lmhfc',
+                  content_type: 'landing_page'
                 })}
               >
                 <div className="lmhfc-btn-icon">
@@ -76,7 +81,12 @@ const LetMyHeartFindChristmas = () => {
                 onClick={() => window.gtag && window.gtag('event', 'music_service_click', { 
                   service: 'apple_music', 
                   song: 'let_my_heart_find_christmas',
-                  context: 'primary_cta'
+                  context: 'primary_cta',
+                  page_path: '/let-my-heart-find-christmas',
+                  page_title: 'Let My Heart Find Christmas - Gracechase',
+                  element_position: 'button_2',
+                  campaign_source: 'ad_campaign_lmhfc',
+                  content_type: 'landing_page'
                 })}
               >
                 <div className="lmhfc-btn-icon">
@@ -96,7 +106,12 @@ const LetMyHeartFindChristmas = () => {
                 onClick={() => window.gtag && window.gtag('event', 'music_service_click', { 
                   service: 'amazon_music', 
                   song: 'let_my_heart_find_christmas',
-                  context: 'primary_cta'
+                  context: 'primary_cta',
+                  page_path: '/let-my-heart-find-christmas',
+                  page_title: 'Let My Heart Find Christmas - Gracechase',
+                  element_position: 'button_3',
+                  campaign_source: 'ad_campaign_lmhfc',
+                  content_type: 'landing_page'
                 })}
               >
                 <div className="lmhfc-btn-icon">
@@ -116,7 +131,12 @@ const LetMyHeartFindChristmas = () => {
                 onClick={() => window.gtag && window.gtag('event', 'music_service_click', { 
                   service: 'youtube_music', 
                   song: 'let_my_heart_find_christmas',
-                  context: 'primary_cta'
+                  context: 'primary_cta',
+                  page_path: '/let-my-heart-find-christmas',
+                  page_title: 'Let My Heart Find Christmas - Gracechase',
+                  element_position: 'button_4',
+                  campaign_source: 'ad_campaign_lmhfc',
+                  content_type: 'landing_page'
                 })}
               >
                 <div className="lmhfc-btn-icon">
@@ -156,7 +176,12 @@ const LetMyHeartFindChristmas = () => {
                 onClick={() => window.gtag && window.gtag('event', 'music_service_click', { 
                   service: 'spotify', 
                   album: 'even_better_christmas',
-                  context: 'secondary_album_offer'
+                  context: 'secondary_album_offer',
+                  page_path: '/let-my-heart-find-christmas',
+                  page_title: 'Let My Heart Find Christmas - Gracechase',
+                  element_position: 'album_link_1',
+                  campaign_source: 'ad_campaign_lmhfc',
+                  content_type: 'landing_page'
                 })}
               >
                 <img src="images/link-icons/Alt Streaming Service Icons/Spotify_Primary_Logo_RGB_Green.png?v=2" alt="Spotify" />
@@ -171,7 +196,12 @@ const LetMyHeartFindChristmas = () => {
                 onClick={() => window.gtag && window.gtag('event', 'music_service_click', { 
                   service: 'youtube_music', 
                   album: 'even_better_christmas',
-                  context: 'secondary_album_offer'
+                  context: 'secondary_album_offer',
+                  page_path: '/let-my-heart-find-christmas',
+                  page_title: 'Let My Heart Find Christmas - Gracechase',
+                  element_position: 'album_link_2',
+                  campaign_source: 'ad_campaign_lmhfc',
+                  content_type: 'landing_page'
                 })}
               >
                 <img src="images/link-icons/YT_music_logo.png" alt="YouTube Music" />
@@ -186,7 +216,12 @@ const LetMyHeartFindChristmas = () => {
                 onClick={() => window.gtag && window.gtag('event', 'music_service_click', { 
                   service: 'apple_music', 
                   album: 'even_better_christmas',
-                  context: 'secondary_album_offer'
+                  context: 'secondary_album_offer',
+                  page_path: '/let-my-heart-find-christmas',
+                  page_title: 'Let My Heart Find Christmas - Gracechase',
+                  element_position: 'album_link_3',
+                  campaign_source: 'ad_campaign_lmhfc',
+                  content_type: 'landing_page'
                 })}
               >
                 <img src="images/link-icons/Alt Streaming Service Icons/music.cce3eb3f.svg" alt="Apple Music" />
@@ -201,7 +236,12 @@ const LetMyHeartFindChristmas = () => {
                 onClick={() => window.gtag && window.gtag('event', 'music_service_click', { 
                   service: 'amazon_music', 
                   album: 'even_better_christmas',
-                  context: 'secondary_album_offer'
+                  context: 'secondary_album_offer',
+                  page_path: '/let-my-heart-find-christmas',
+                  page_title: 'Let My Heart Find Christmas - Gracechase',
+                  element_position: 'album_link_4',
+                  campaign_source: 'ad_campaign_lmhfc',
+                  content_type: 'landing_page'
                 })}
               >
                 <img src="images/link-icons/amazon_music_logo.png" alt="Amazon Music" />

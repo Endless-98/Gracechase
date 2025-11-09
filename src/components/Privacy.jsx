@@ -47,7 +47,7 @@ const Privacy = () => {
         <Link to="/" className="home-link">← Back to Home</Link>
         <header className="privacy-header">
           <h1>Privacy Policy</h1>
-          <p>Last updated: October 19, 2025</p>
+          <p>Last updated: November 9, 2025</p>
         </header>
         <section className="privacy-content">
           <div className="privacy-section">
@@ -61,7 +61,7 @@ const Privacy = () => {
             <h2>What We Collect</h2>
             <ul>
               <li>
-                Site analytics: We use Google Analytics 4 (GA4) to measure visits, pages, and general usage. GA4 collects device/browser information, approximate location (based on IP), and event data like page views and clicks. We configured GA to avoid storing unnecessary identifiers for this site.
+                Site analytics: We use Google Analytics 4 (GA4) to measure visits, pages, and general usage. GA4 collects device/browser information, approximate location (based on IP), and event data like page views, clicks, button interactions, and navigation paths. We track which links and buttons you click to understand how you use the site and which content is most engaging. GA4 is configured to minimize unnecessary identifiers for this site.
               </li>
               <li>
                 Advertising and conversion signals: We use the Twitter/X pixel and Meta (Facebook) pixel to measure ad performance and conversions (e.g., newsletter signups). These may allow Twitter and Meta to link visits to logged-in users for ad personalization according to their settings.
@@ -79,7 +79,8 @@ const Privacy = () => {
             <h2>How We Use Data</h2>
             <ul>
               <li>Operate and improve the site and content.</li>
-              <li>Measure reach and effectiveness of pages, links, and campaigns.</li>
+              <li>Measure reach and effectiveness of pages, links, campaigns, and individual buttons/features.</li>
+              <li>Understand user behavior and preferences to improve user experience.</li>
               <li>Send newsletters or updates you requested.</li>
               <li>Detect and prevent abuse or errors.</li>
             </ul>
